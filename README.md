@@ -160,7 +160,7 @@ TEST_MYSQL=1 ./env/bin/python -m pytest -v
 
 Cada prueba MySQL crea una base aleatoria `ingresos_test_<uuid>` y elimina solamente esa base al terminar. Usa las credenciales locales de root para crear esas bases; no modifica la base de la aplicación. SQLite usa archivos temporales. Las respuestas se guardan con secretos ocultos en `graphql-mysql.json` o `graphql-sqlite.json`.
 
-Resultado de entrega: **41 pruebas aprobadas en MySQL 8.4.11; 40 aprobadas en SQLite y 1 omitida por ser específica de migración a MySQL**. Hay un aviso de deprecación de Starlette/AnyIO que no impide las pruebas. Además se ejecutaron 7 comprobaciones HTTP contra la API en Docker y se capturaron 12 evidencias reales de GraphiQL.
+Resultado de entrega: **42 pruebas aprobadas en MySQL 8.4.11**; la secuencia nueva también se comprobó en SQLite. Hay un aviso de deprecación de Starlette/AnyIO que no impide las pruebas. Además se ejecutaron 7 comprobaciones HTTP contra la API en Docker y se capturaron 12 evidencias reales de GraphiQL de la actividad anterior. Las capturas nuevas de la actividad 4 siguen pendientes de guardarse como archivos.
 
 Para comprobar SQL y exportar el contrato:
 
