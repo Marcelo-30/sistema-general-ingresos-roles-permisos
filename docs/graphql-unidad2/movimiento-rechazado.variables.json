@@ -1,0 +1,9 @@
+{
+  "actor": "5",
+  "input": {
+    "accountId": "4",
+    "conceptId": "11",
+    "transactionType": "INCOME",
+    "amount": "13.37"
+  }
+}

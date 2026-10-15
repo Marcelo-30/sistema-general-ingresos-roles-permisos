@@ -1,0 +1,7 @@
+mutation {
+  createCompanyAdmin(input: {
+    companyId: "2", name: "Duplicado",
+    email: "duplicado@example.com",
+    password: "Dato-ficticio-no-utilizado"
+  }) { id isAdmin }
+}

@@ -1,0 +1,59 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.14, pytest-8.3.5, pluggy-1.6.0 -- C:\Users\enriq\OneDrive\Escritorio\Fastapi\env\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\enriq\OneDrive\Escritorio\Fastapi
+configfile: pytest.ini
+testpaths: tests
+plugins: anyio-4.15.1
+collecting ... collected 41 items
+
+tests/test_access.py::test_exact_matrix_and_membership_roles PASSED      [  2%]
+tests/test_access.py::test_capturista_records_consulta_cannot_and_zero_partial_writes PASSED [  4%]
+tests/test_access.py::test_contador_create_capturista_rejected_then_role_change PASSED [  7%]
+tests/test_access.py::test_second_admin_is_rejected_without_orphan_user PASSED [  9%]
+tests/test_access.py::test_restart_idempotency_and_preserves_revocations PASSED [ 12%]
+tests/test_access.py::test_all_revoked_role_not_restored_at_startup PASSED [ 14%]
+tests/test_access.py::test_inactive_nodes_never_authorize[role] PASSED   [ 17%]
+tests/test_access.py::test_inactive_nodes_never_authorize[membership] PASSED [ 19%]
+tests/test_access.py::test_inactive_nodes_never_authorize[company] PASSED [ 21%]
+tests/test_access.py::test_inactive_nodes_never_authorize[user] PASSED   [ 24%]
+tests/test_access.py::test_inactive_nodes_never_authorize[permission] PASSED [ 26%]
+tests/test_access.py::test_inactive_nodes_never_authorize[relation] PASSED [ 29%]
+tests/test_access.py::test_is_admin_is_not_a_permission_bypass PASSED    [ 31%]
+tests/test_access.py::test_cross_company_resources_and_memberships PASSED [ 34%]
+tests/test_access.py::test_catalog_crud_codes_filters_and_no_physical_delete PASSED [ 36%]
+tests/test_access.py::test_precommit_authorization_rolls_back_self_revocation PASSED [ 39%]
+tests/test_access.py::test_previous_membership_transition_is_consulta_not_admin PASSED [ 41%]
+tests/test_access.py::test_database_unique_relations_and_one_active_role PASSED [ 43%]
+tests/test_access.py::test_concurrent_role_changes_leave_one_active PASSED [ 46%]
+tests/test_access.py::test_login_unchanged_hash_not_public_and_actor_required PASSED [ 48%]
+tests/test_access.py::test_read_permissions_and_member_write_permissions PASSED [ 51%]
+tests/test_access.py::test_mysql_migration_preserves_every_legacy_field PASSED [ 53%]
+tests/test_finance.py::test_amount_must_be_positive[0] PASSED            [ 56%]
+tests/test_finance.py::test_amount_must_be_positive[-1] PASSED           [ 58%]
+tests/test_finance.py::test_amount_must_be_positive[-0.01] PASSED        [ 60%]
+tests/test_finance.py::test_financial_references_and_type[extra0-NOT_FOUND] PASSED [ 63%]
+tests/test_finance.py::test_financial_references_and_type[extra1-NOT_FOUND] PASSED [ 65%]
+tests/test_finance.py::test_financial_references_and_type[extra2-BAD_INPUT] PASSED [ 68%]
+tests/test_finance.py::test_financial_references_and_type[extra3-BAD_INPUT] PASSED [ 70%]
+tests/test_finance.py::test_scalars_and_capture_cannot_be_supplied[extra0] PASSED [ 73%]
+tests/test_finance.py::test_scalars_and_capture_cannot_be_supplied[extra1] PASSED [ 75%]
+tests/test_finance.py::test_scalars_and_capture_cannot_be_supplied[extra2] PASSED [ 78%]
+tests/test_finance.py::test_scalars_and_capture_cannot_be_supplied[extra3] PASSED [ 80%]
+tests/test_finance.py::test_scalars_and_capture_cannot_be_supplied[extra4] PASSED [ 82%]
+tests/test_finance.py::test_scalars_and_capture_cannot_be_supplied[extra5] PASSED [ 85%]
+tests/test_finance.py::test_catalog_duplicate_normalization_and_filters PASSED [ 87%]
+tests/test_finance.py::test_relationship_lifecycle_and_permissions PASSED [ 90%]
+tests/test_finance.py::test_precision_pagination_dates_soft_delete_and_balance PASSED [ 92%]
+tests/test_finance.py::test_other_company_concept_is_rejected PASSED     [ 95%]
+tests/test_finance.py::test_seed_financial_is_repeatable PASSED          [ 97%]
+tests/test_schema_pdf.py::test_complete_contract_from_three_pdfs PASSED  [100%]
+
+============================== warnings summary ===============================
+env\Lib\site-packages\starlette\testclient.py:37
+  C:\Users\enriq\OneDrive\Escritorio\Fastapi\env\Lib\site-packages\starlette\testclient.py:37: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
+    _PortalFactoryType = typing.Callable[[], typing.ContextManager[anyio.abc.BlockingPortal]]
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+- generated xml file: C:\Users\enriq\OneDrive\Escritorio\Fastapi\docs\evidencias\unidad2\pytest-mysql.xml -
+================= 41 passed, 1 warning in 1989.37s (0:33:09) ==================

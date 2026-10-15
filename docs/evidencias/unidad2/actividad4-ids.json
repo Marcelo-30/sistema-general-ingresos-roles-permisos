@@ -1,0 +1,18 @@
+{
+  "companyId": "1",
+  "people": {
+    "Ana": "1",
+    "Luis": "2",
+    "María": "3",
+    "José": "4",
+    "Pedro": "5"
+  },
+  "roles": {
+    "ADMINISTRADOR": "1",
+    "CONTADOR": "2",
+    "CAPTURISTA": "3",
+    "CONSULTA": "4"
+  },
+  "accountId": "1",
+  "conceptId": "1"
+}

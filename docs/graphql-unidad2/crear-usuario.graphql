@@ -1,0 +1,7 @@
+mutation ($actor: ID!, $input: CreateCompanyUserInput!) {
+  createCompanyUser(actorCompanyUserId: $actor, input: $input) {
+    id
+    userId
+    isAdmin
+  }
+}

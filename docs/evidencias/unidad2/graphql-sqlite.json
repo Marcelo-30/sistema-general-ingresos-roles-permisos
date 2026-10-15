@@ -1,0 +1,2125 @@
+{
+  "backend": "sqlite",
+  "exitstatus": 0,
+  "pruebas": {
+    "test_configuracion_dinamica_de_cinco_personas": "passed"
+  },
+  "casos": [
+    {
+      "caso": "test_configuracion_dinamica_de_cinco_personas",
+      "operacion": "mutation($input:CreateCompanyInput!){createCompany(input:$input){id name isActive}}",
+      "variables": {
+        "input": {
+          "name": "Empresa de actividad 4"
+        }
+      },
+      "esperado": "Sin errores GraphQL",
+      "obtenido": {
+        "data": {
+          "createCompany": {
+            "id": "1",
+            "name": "Empresa de actividad 4",
+            "isActive": true
+          }
+        }
+      },
+      "http": 200,
+      "estado": "passed"
+    },
+    {
+      "caso": "test_configuracion_dinamica_de_cinco_personas",
+      "operacion": "mutation($input:CreateCompanyAdminInput!){createCompanyAdmin(input:$input){id userId companyId isAdmin user{id email}}}",
+      "variables": {
+        "input": {
+          "companyId": "1",
+          "name": "Ana",
+          "email": "ana@actividad4.example",
+          "password": "<oculto>"
+        }
+      },
+      "esperado": "Sin errores GraphQL",
+      "obtenido": {
+        "data": {
+          "createCompanyAdmin": {
+            "id": "1",
+            "userId": "1",
+            "companyId": "1",
+            "isAdmin": true,
+            "user": {
+              "id": "1",
+              "email": "ana@actividad4.example"
+            }
+          }
+        }
+      },
+      "http": 200,
+      "estado": "passed"
+    },
+    {
+      "caso": "test_configuracion_dinamica_de_cinco_personas",
+      "operacion": "query($actor:ID!){roles(actorCompanyUserId:$actor){id code name description isActive} permissions(actorCompanyUserId:$actor){id code name description isActive}}",
+      "variables": {
+        "actor": "1"
+      },
+      "esperado": "Sin errores GraphQL",
+      "obtenido": {
+        "data": {
+          "roles": [
+            {
+              "id": "1",
+              "code": "ADMINISTRADOR",
+              "name": "Administrador",
+              "description": null,
+              "isActive": true
+            },
+            {
+              "id": "2",
+              "code": "CONTADOR",
+              "name": "Contador",
+              "description": null,
+              "isActive": true
+            },
+            {
+              "id": "3",
+              "code": "CAPTURISTA",
+              "name": "Capturista",
+              "description": null,
+              "isActive": true
+            },
+            {
+              "id": "4",
+              "code": "CONSULTA",
+              "name": "Consulta",
+              "description": null,
+              "isActive": true
+            }
+          ],
+          "permissions": [
+            {
+              "id": "1",
+              "code": "company.users.read",
+              "name": "company.users.read",
+              "description": null,
+              "isActive": true
+            },
+            {
+              "id": "2",
+              "code": "company.users.write",
+              "name": "company.users.write",
+              "description": null,
+              "isActive": true
+            },
+            {
+              "id": "3",
+              "code": "accounts.read",
+              "name": "accounts.read",
+              "description": null,
+              "isActive": true
+            },
+            {
+              "id": "4",
+              "code": "accounts.write",
+              "name": "accounts.write",
+              "description": null,
+              "isActive": true
+            },
+            {
+              "id": "5",
+              "code": "concepts.read",
+              "name": "concepts.read",
+              "description": null,
+              "isActive": true
+            },
+            {
+              "id": "6",
+              "code": "concepts.write",
+              "name": "concepts.write",
+              "description": null,
+              "isActive": true
+            },
+            {
+              "id": "7",
+              "code": "transactions.read",
+              "name": "transactions.read",
+              "description": null,
+              "isActive": true
+            },
+            {
+              "id": "8",
+              "code": "transactions.write",
+              "name": "transactions.write",
+              "description": null,
+              "isActive": true
+            },
+            {
+              "id": "9",
+              "code": "roles.read",
+              "name": "roles.read",
+              "description": null,
+              "isActive": true
+            },
+            {
+              "id": "10",
+              "code": "roles.write",
+              "name": "roles.write",
+              "description": null,
+              "isActive": true
+            }
+          ]
+        }
+      },
+      "http": 200,
+      "estado": "passed"
+    },
+    {
+      "caso": "test_configuracion_dinamica_de_cinco_personas",
+      "operacion": "query($actor:ID!,$role:ID!){rolePermissions(actorCompanyUserId:$actor,roleId:$role){id isActive role{code} permission{id code isActive}}}",
+      "variables": {
+        "actor": "1",
+        "role": "1"
+      },
+      "esperado": "Sin errores GraphQL",
+      "obtenido": {
+        "data": {
+          "rolePermissions": [
+            {
+              "id": "1",
+              "isActive": true,
+              "role": {
+                "code": "ADMINISTRADOR"
+              },
+              "permission": {
+                "id": "1",
+                "code": "company.users.read",
+                "isActive": true
+              }
+            },
+            {
+              "id": "2",
+              "isActive": true,
+              "role": {
+                "code": "ADMINISTRADOR"
+              },
+              "permission": {
+                "id": "2",
+                "code": "company.users.write",
+                "isActive": true
+              }
+            },
+            {
+              "id": "3",
+              "isActive": true,
+              "role": {
+                "code": "ADMINISTRADOR"
+              },
+              "permission": {
+                "id": "3",
+                "code": "accounts.read",
+                "isActive": true
+              }
+            },
+            {
+              "id": "4",
+              "isActive": true,
+              "role": {
+                "code": "ADMINISTRADOR"
+              },
+              "permission": {
+                "id": "4",
+                "code": "accounts.write",
+                "isActive": true
+              }
+            },
+            {
+              "id": "5",
+              "isActive": true,
+              "role": {
+                "code": "ADMINISTRADOR"
+              },
+              "permission": {
+                "id": "5",
+                "code": "concepts.read",
+                "isActive": true
+              }
+            },
+            {
+              "id": "6",
+              "isActive": true,
+              "role": {
+                "code": "ADMINISTRADOR"
+              },
+              "permission": {
+                "id": "6",
+                "code": "concepts.write",
+                "isActive": true
+              }
+            },
+            {
+              "id": "7",
+              "isActive": true,
+              "role": {
+                "code": "ADMINISTRADOR"
+              },
+              "permission": {
+                "id": "7",
+                "code": "transactions.read",
+                "isActive": true
+              }
+            },
+            {
+              "id": "8",
+              "isActive": true,
+              "role": {
+                "code": "ADMINISTRADOR"
+              },
+              "permission": {
+                "id": "8",
+                "code": "transactions.write",
+                "isActive": true
+              }
+            },
+            {
+              "id": "9",
+              "isActive": true,
+              "role": {
+                "code": "ADMINISTRADOR"
+              },
+              "permission": {
+                "id": "9",
+                "code": "roles.read",
+                "isActive": true
+              }
+            },
+            {
+              "id": "10",
+              "isActive": true,
+              "role": {
+                "code": "ADMINISTRADOR"
+              },
+              "permission": {
+                "id": "10",
+                "code": "roles.write",
+                "isActive": true
+              }
+            }
+          ]
+        }
+      },
+      "http": 200,
+      "estado": "passed"
+    },
+    {
+      "caso": "test_configuracion_dinamica_de_cinco_personas",
+      "operacion": "query($actor:ID!,$role:ID!){rolePermissions(actorCompanyUserId:$actor,roleId:$role){id isActive role{code} permission{id code isActive}}}",
+      "variables": {
+        "actor": "1",
+        "role": "2"
+      },
+      "esperado": "Sin errores GraphQL",
+      "obtenido": {
+        "data": {
+          "rolePermissions": [
+            {
+              "id": "11",
+              "isActive": true,
+              "role": {
+                "code": "CONTADOR"
+              },
+              "permission": {
+                "id": "1",
+                "code": "company.users.read",
+                "isActive": true
+              }
+            },
+            {
+              "id": "12",
+              "isActive": true,
+              "role": {
+                "code": "CONTADOR"
+              },
+              "permission": {
+                "id": "3",
+                "code": "accounts.read",
+                "isActive": true
+              }
+            },
+            {
+              "id": "13",
+              "isActive": true,
+              "role": {
+                "code": "CONTADOR"
+              },
+              "permission": {
+                "id": "4",
+                "code": "accounts.write",
+                "isActive": true
+              }
+            },
+            {
+              "id": "14",
+              "isActive": true,
+              "role": {
+                "code": "CONTADOR"
+              },
+              "permission": {
+                "id": "5",
+                "code": "concepts.read",
+                "isActive": true
+              }
+            },
+            {
+              "id": "15",
+              "isActive": true,
+              "role": {
+                "code": "CONTADOR"
+              },
+              "permission": {
+                "id": "6",
+                "code": "concepts.write",
+                "isActive": true
+              }
+            },
+            {
+              "id": "16",
+              "isActive": true,
+              "role": {
+                "code": "CONTADOR"
+              },
+              "permission": {
+                "id": "7",
+                "code": "transactions.read",
+                "isActive": true
+              }
+            },
+            {
+              "id": "17",
+              "isActive": true,
+              "role": {
+                "code": "CONTADOR"
+              },
+              "permission": {
+                "id": "8",
+                "code": "transactions.write",
+                "isActive": true
+              }
+            },
+            {
+              "id": "18",
+              "isActive": true,
+              "role": {
+                "code": "CONTADOR"
+              },
+              "permission": {
+                "id": "9",
+                "code": "roles.read",
+                "isActive": true
+              }
+            }
+          ]
+        }
+      },
+      "http": 200,
+      "estado": "passed"
+    },
+    {
+      "caso": "test_configuracion_dinamica_de_cinco_personas",
+      "operacion": "query($actor:ID!,$role:ID!){rolePermissions(actorCompanyUserId:$actor,roleId:$role){id isActive role{code} permission{id code isActive}}}",
+      "variables": {
+        "actor": "1",
+        "role": "3"
+      },
+      "esperado": "Sin errores GraphQL",
+      "obtenido": {
+        "data": {
+          "rolePermissions": [
+            {
+              "id": "19",
+              "isActive": true,
+              "role": {
+                "code": "CAPTURISTA"
+              },
+              "permission": {
+                "id": "3",
+                "code": "accounts.read",
+                "isActive": true
+              }
+            },
+            {
+              "id": "20",
+              "isActive": true,
+              "role": {
+                "code": "CAPTURISTA"
+              },
+              "permission": {
+                "id": "5",
+                "code": "concepts.read",
+                "isActive": true
+              }
+            },
+            {
+              "id": "21",
+              "isActive": true,
+              "role": {
+                "code": "CAPTURISTA"
+              },
+              "permission": {
+                "id": "7",
+                "code": "transactions.read",
+                "isActive": true
+              }
+            },
+            {
+              "id": "22",
+              "isActive": true,
+              "role": {
+                "code": "CAPTURISTA"
+              },
+              "permission": {
+                "id": "8",
+                "code": "transactions.write",
+                "isActive": true
+              }
+            }
+          ]
+        }
+      },
+      "http": 200,
+      "estado": "passed"
+    },
+    {
+      "caso": "test_configuracion_dinamica_de_cinco_personas",
+      "operacion": "query($actor:ID!,$role:ID!){rolePermissions(actorCompanyUserId:$actor,roleId:$role){id isActive role{code} permission{id code isActive}}}",
+      "variables": {
+        "actor": "1",
+        "role": "4"
+      },
+      "esperado": "Sin errores GraphQL",
+      "obtenido": {
+        "data": {
+          "rolePermissions": [
+            {
+              "id": "23",
+              "isActive": true,
+              "role": {
+                "code": "CONSULTA"
+              },
+              "permission": {
+                "id": "1",
+                "code": "company.users.read",
+                "isActive": true
+              }
+            },
+            {
+              "id": "24",
+              "isActive": true,
+              "role": {
+                "code": "CONSULTA"
+              },
+              "permission": {
+                "id": "3",
+                "code": "accounts.read",
+                "isActive": true
+              }
+            },
+            {
+              "id": "25",
+              "isActive": true,
+              "role": {
+                "code": "CONSULTA"
+              },
+              "permission": {
+                "id": "5",
+                "code": "concepts.read",
+                "isActive": true
+              }
+            },
+            {
+              "id": "26",
+              "isActive": true,
+              "role": {
+                "code": "CONSULTA"
+              },
+              "permission": {
+                "id": "7",
+                "code": "transactions.read",
+                "isActive": true
+              }
+            }
+          ]
+        }
+      },
+      "http": 200,
+      "estado": "passed"
+    },
+    {
+      "caso": "test_configuracion_dinamica_de_cinco_personas",
+      "operacion": "mutation($actor:ID!,$input:CreateCompanyUserInput!){createCompanyUser(actorCompanyUserId:$actor,input:$input){id userId isAdmin}}",
+      "variables": {
+        "actor": "1",
+        "input": {
+          "companyId": "1",
+          "name": "Luis",
+          "email": "luis@actividad4.example",
+          "password": "<oculto>"
+        }
+      },
+      "esperado": "Sin errores GraphQL",
+      "obtenido": {
+        "data": {
+          "createCompanyUser": {
+            "id": "2",
+            "userId": "2",
+            "isAdmin": false
+          }
+        }
+      },
+      "http": 200,
+      "estado": "passed"
+    },
+    {
+      "caso": "test_configuracion_dinamica_de_cinco_personas",
+      "operacion": "mutation($actor:ID!,$input:AssignRoleInput!){assignRole(actorCompanyUserId:$actor,input:$input){id isActive role{id code} companyUser{id companyId isAdmin}}}",
+      "variables": {
+        "actor": "1",
+        "input": {
+          "companyUserId": "2",
+          "roleId": "2"
+        }
+      },
+      "esperado": "Sin errores GraphQL",
+      "obtenido": {
+        "data": {
+          "assignRole": {
+            "id": "3",
+            "isActive": true,
+            "role": {
+              "id": "2",
+              "code": "CONTADOR"
+            },
+            "companyUser": {
+              "id": "2",
+              "companyId": "1",
+              "isAdmin": false
+            }
+          }
+        }
+      },
+      "http": 200,
+      "estado": "passed"
+    },
+    {
+      "caso": "test_configuracion_dinamica_de_cinco_personas",
+      "operacion": "mutation($actor:ID!,$input:CreateCompanyUserInput!){createCompanyUser(actorCompanyUserId:$actor,input:$input){id userId isAdmin}}",
+      "variables": {
+        "actor": "1",
+        "input": {
+          "companyId": "1",
+          "name": "María",
+          "email": "maria@actividad4.example",
+          "password": "<oculto>"
+        }
+      },
+      "esperado": "Sin errores GraphQL",
+      "obtenido": {
+        "data": {
+          "createCompanyUser": {
+            "id": "3",
+            "userId": "3",
+            "isAdmin": false
+          }
+        }
+      },
+      "http": 200,
+      "estado": "passed"
+    },
+    {
+      "caso": "test_configuracion_dinamica_de_cinco_personas",
+      "operacion": "mutation($actor:ID!,$input:AssignRoleInput!){assignRole(actorCompanyUserId:$actor,input:$input){id isActive role{id code} companyUser{id companyId isAdmin}}}",
+      "variables": {
+        "actor": "1",
+        "input": {
+          "companyUserId": "3",
+          "roleId": "3"
+        }
+      },
+      "esperado": "Sin errores GraphQL",
+      "obtenido": {
+        "data": {
+          "assignRole": {
+            "id": "5",
+            "isActive": true,
+            "role": {
+              "id": "3",
+              "code": "CAPTURISTA"
+            },
+            "companyUser": {
+              "id": "3",
+              "companyId": "1",
+              "isAdmin": false
+            }
+          }
+        }
+      },
+      "http": 200,
+      "estado": "passed"
+    },
+    {
+      "caso": "test_configuracion_dinamica_de_cinco_personas",
+      "operacion": "mutation($actor:ID!,$input:CreateCompanyUserInput!){createCompanyUser(actorCompanyUserId:$actor,input:$input){id userId isAdmin}}",
+      "variables": {
+        "actor": "1",
+        "input": {
+          "companyId": "1",
+          "name": "José",
+          "email": "jose@actividad4.example",
+          "password": "<oculto>"
+        }
+      },
+      "esperado": "Sin errores GraphQL",
+      "obtenido": {
+        "data": {
+          "createCompanyUser": {
+            "id": "4",
+            "userId": "4",
+            "isAdmin": false
+          }
+        }
+      },
+      "http": 200,
+      "estado": "passed"
+    },
+    {
+      "caso": "test_configuracion_dinamica_de_cinco_personas",
+      "operacion": "mutation($actor:ID!,$input:AssignRoleInput!){assignRole(actorCompanyUserId:$actor,input:$input){id isActive role{id code} companyUser{id companyId isAdmin}}}",
+      "variables": {
+        "actor": "1",
+        "input": {
+          "companyUserId": "4",
+          "roleId": "3"
+        }
+      },
+      "esperado": "Sin errores GraphQL",
+      "obtenido": {
+        "data": {
+          "assignRole": {
+            "id": "7",
+            "isActive": true,
+            "role": {
+              "id": "3",
+              "code": "CAPTURISTA"
+            },
+            "companyUser": {
+              "id": "4",
+              "companyId": "1",
+              "isAdmin": false
+            }
+          }
+        }
+      },
+      "http": 200,
+      "estado": "passed"
+    },
+    {
+      "caso": "test_configuracion_dinamica_de_cinco_personas",
+      "operacion": "mutation($actor:ID!,$input:CreateCompanyUserInput!){createCompanyUser(actorCompanyUserId:$actor,input:$input){id userId isAdmin}}",
+      "variables": {
+        "actor": "1",
+        "input": {
+          "companyId": "1",
+          "name": "Pedro",
+          "email": "pedro@actividad4.example",
+          "password": "<oculto>"
+        }
+      },
+      "esperado": "Sin errores GraphQL",
+      "obtenido": {
+        "data": {
+          "createCompanyUser": {
+            "id": "5",
+            "userId": "5",
+            "isAdmin": false
+          }
+        }
+      },
+      "http": 200,
+      "estado": "passed"
+    },
+    {
+      "caso": "test_configuracion_dinamica_de_cinco_personas",
+      "operacion": "mutation($actor:ID!,$input:AssignRoleInput!){assignRole(actorCompanyUserId:$actor,input:$input){id isActive role{id code} companyUser{id companyId isAdmin}}}",
+      "variables": {
+        "actor": "1",
+        "input": {
+          "companyUserId": "5",
+          "roleId": "4"
+        }
+      },
+      "esperado": "Sin errores GraphQL",
+      "obtenido": {
+        "data": {
+          "assignRole": {
+            "id": "8",
+            "isActive": true,
+            "role": {
+              "id": "4",
+              "code": "CONSULTA"
+            },
+            "companyUser": {
+              "id": "5",
+              "companyId": "1",
+              "isAdmin": false
+            }
+          }
+        }
+      },
+      "http": 200,
+      "estado": "passed"
+    },
+    {
+      "caso": "test_configuracion_dinamica_de_cinco_personas",
+      "operacion": "mutation($actor:ID!,$input:CreateAccountInput!){createAccount(actorCompanyUserId:$actor,input:$input){id companyId name accountType bankName accountNumber clabe cardLastDigits shortDescription longDescription isActive createdAt updatedAt company{id}}}",
+      "variables": {
+        "actor": "2",
+        "input": {
+          "companyId": "1",
+          "name": "Cuenta base",
+          "accountType": "CASH"
+        }
+      },
+      "esperado": "Sin errores GraphQL",
+      "obtenido": {
+        "data": {
+          "createAccount": {
+            "id": "1",
+            "companyId": "1",
+            "name": "Cuenta base",
+            "accountType": "CASH",
+            "bankName": null,
+            "accountNumber": null,
+            "clabe": null,
+            "cardLastDigits": null,
+            "shortDescription": null,
+            "longDescription": null,
+            "isActive": true,
+            "createdAt": "2026-10-15T03:46:44.638398Z",
+            "updatedAt": "2026-10-15T03:46:44.638398Z",
+            "company": {
+              "id": "1"
+            }
+          }
+        }
+      },
+      "http": 200,
+      "estado": "passed"
+    },
+    {
+      "caso": "test_configuracion_dinamica_de_cinco_personas",
+      "operacion": "mutation($actor:ID!,$input:CreateConceptInput!){createConcept(actorCompanyUserId:$actor,input:$input){id companyId name conceptType shortDescription longDescription isActive createdAt updatedAt}}",
+      "variables": {
+        "actor": "1",
+        "input": {
+          "companyId": "1",
+          "name": "Ingreso actividad 4",
+          "conceptType": "INCOME"
+        }
+      },
+      "esperado": "Sin errores GraphQL",
+      "obtenido": {
+        "data": {
+          "createConcept": {
+            "id": "1",
+            "companyId": "1",
+            "name": "Ingreso actividad 4",
+            "conceptType": "INCOME",
+            "shortDescription": null,
+            "longDescription": null,
+            "isActive": true,
+            "createdAt": "2026-10-15T03:46:44.657576Z",
+            "updatedAt": "2026-10-15T03:46:44.657576Z"
+          }
+        }
+      },
+      "http": 200,
+      "estado": "passed"
+    },
+    {
+      "caso": "test_configuracion_dinamica_de_cinco_personas",
+      "operacion": "mutation($actor:ID!,$input:AssignConceptToAccountInput!){assignConceptToAccount(actorCompanyUserId:$actor,input:$input){id isActive createdAt account{id} concept{id}}}",
+      "variables": {
+        "actor": "1",
+        "input": {
+          "accountId": "1",
+          "conceptId": "1"
+        }
+      },
+      "esperado": "Sin errores GraphQL",
+      "obtenido": {
+        "data": {
+          "assignConceptToAccount": {
+            "id": "1",
+            "isActive": true,
+            "createdAt": "2026-10-15T03:46:44.682764Z",
+            "account": {
+              "id": "1"
+            },
+            "concept": {
+              "id": "1"
+            }
+          }
+        }
+      },
+      "http": 200,
+      "estado": "passed"
+    },
+    {
+      "caso": "test_configuracion_dinamica_de_cinco_personas",
+      "operacion": "mutation($actor:ID!,$input:CreateAccountInput!){createAccount(actorCompanyUserId:$actor,input:$input){id companyId name accountType bankName accountNumber clabe cardLastDigits shortDescription longDescription isActive createdAt updatedAt company{id}}}",
+      "variables": {
+        "actor": "3",
+        "input": {
+          "companyId": "1",
+          "name": "Cuenta María rechazada",
+          "accountType": "CASH"
+        }
+      },
+      "esperado": "FORBIDDEN",
+      "obtenido": {
+        "data": null,
+        "errors": [
+          {
+            "message": "El rol no tiene el permiso accounts.write.",
+            "locations": [
+              {
+                "line": 1,
+                "column": 49
+              }
+            ],
+            "path": [
+              "createAccount"
+            ],
+            "extensions": {
+              "code": "FORBIDDEN"
+            }
+          }
+        ]
+      },
+      "http": 200,
+      "estado": "passed"
+    },
+    {
+      "caso": "test_configuracion_dinamica_de_cinco_personas",
+      "operacion": "mutation($actor:ID!,$input:CreateAccountInput!){createAccount(actorCompanyUserId:$actor,input:$input){id companyId name accountType bankName accountNumber clabe cardLastDigits shortDescription longDescription isActive createdAt updatedAt company{id}}}",
+      "variables": {
+        "actor": "4",
+        "input": {
+          "companyId": "1",
+          "name": "Cuenta José rechazada",
+          "accountType": "CASH"
+        }
+      },
+      "esperado": "FORBIDDEN",
+      "obtenido": {
+        "data": null,
+        "errors": [
+          {
+            "message": "El rol no tiene el permiso accounts.write.",
+            "locations": [
+              {
+                "line": 1,
+                "column": 49
+              }
+            ],
+            "path": [
+              "createAccount"
+            ],
+            "extensions": {
+              "code": "FORBIDDEN"
+            }
+          }
+        ]
+      },
+      "http": 200,
+      "estado": "passed"
+    },
+    {
+      "caso": "test_configuracion_dinamica_de_cinco_personas",
+      "operacion": "mutation($actor:ID!,$input:AssignPermissionToRoleInput!){assignPermissionToRole(actorCompanyUserId:$actor,input:$input){id isActive role{code} permission{code}}}",
+      "variables": {
+        "actor": "1",
+        "input": {
+          "roleId": "3",
+          "permissionId": "4"
+        }
+      },
+      "esperado": "Sin errores GraphQL",
+      "obtenido": {
+        "data": {
+          "assignPermissionToRole": {
+            "id": "27",
+            "isActive": true,
+            "role": {
+              "code": "CAPTURISTA"
+            },
+            "permission": {
+              "code": "accounts.write"
+            }
+          }
+        }
+      },
+      "http": 200,
+      "estado": "passed"
+    },
+    {
+      "caso": "test_configuracion_dinamica_de_cinco_personas",
+      "operacion": "query($actor:ID!,$role:ID!){rolePermissions(actorCompanyUserId:$actor,roleId:$role){id isActive role{code} permission{id code isActive}}}",
+      "variables": {
+        "actor": "1",
+        "role": "3"
+      },
+      "esperado": "Sin errores GraphQL",
+      "obtenido": {
+        "data": {
+          "rolePermissions": [
+            {
+              "id": "19",
+              "isActive": true,
+              "role": {
+                "code": "CAPTURISTA"
+              },
+              "permission": {
+                "id": "3",
+                "code": "accounts.read",
+                "isActive": true
+              }
+            },
+            {
+              "id": "20",
+              "isActive": true,
+              "role": {
+                "code": "CAPTURISTA"
+              },
+              "permission": {
+                "id": "5",
+                "code": "concepts.read",
+                "isActive": true
+              }
+            },
+            {
+              "id": "21",
+              "isActive": true,
+              "role": {
+                "code": "CAPTURISTA"
+              },
+              "permission": {
+                "id": "7",
+                "code": "transactions.read",
+                "isActive": true
+              }
+            },
+            {
+              "id": "22",
+              "isActive": true,
+              "role": {
+                "code": "CAPTURISTA"
+              },
+              "permission": {
+                "id": "8",
+                "code": "transactions.write",
+                "isActive": true
+              }
+            },
+            {
+              "id": "27",
+              "isActive": true,
+              "role": {
+                "code": "CAPTURISTA"
+              },
+              "permission": {
+                "id": "4",
+                "code": "accounts.write",
+                "isActive": true
+              }
+            }
+          ]
+        }
+      },
+      "http": 200,
+      "estado": "passed"
+    },
+    {
+      "caso": "test_configuracion_dinamica_de_cinco_personas",
+      "operacion": "mutation($actor:ID!,$input:CreateAccountInput!){createAccount(actorCompanyUserId:$actor,input:$input){id companyId name accountType bankName accountNumber clabe cardLastDigits shortDescription longDescription isActive createdAt updatedAt company{id}}}",
+      "variables": {
+        "actor": "3",
+        "input": {
+          "companyId": "1",
+          "name": "Cuenta María aceptada",
+          "accountType": "CASH"
+        }
+      },
+      "esperado": "Sin errores GraphQL",
+      "obtenido": {
+        "data": {
+          "createAccount": {
+            "id": "2",
+            "companyId": "1",
+            "name": "Cuenta María aceptada",
+            "accountType": "CASH",
+            "bankName": null,
+            "accountNumber": null,
+            "clabe": null,
+            "cardLastDigits": null,
+            "shortDescription": null,
+            "longDescription": null,
+            "isActive": true,
+            "createdAt": "2026-10-15T03:46:44.824791Z",
+            "updatedAt": "2026-10-15T03:46:44.824791Z",
+            "company": {
+              "id": "1"
+            }
+          }
+        }
+      },
+      "http": 200,
+      "estado": "passed"
+    },
+    {
+      "caso": "test_configuracion_dinamica_de_cinco_personas",
+      "operacion": "mutation($actor:ID!,$input:CreateAccountInput!){createAccount(actorCompanyUserId:$actor,input:$input){id companyId name accountType bankName accountNumber clabe cardLastDigits shortDescription longDescription isActive createdAt updatedAt company{id}}}",
+      "variables": {
+        "actor": "4",
+        "input": {
+          "companyId": "1",
+          "name": "Cuenta José aceptada",
+          "accountType": "CASH"
+        }
+      },
+      "esperado": "Sin errores GraphQL",
+      "obtenido": {
+        "data": {
+          "createAccount": {
+            "id": "3",
+            "companyId": "1",
+            "name": "Cuenta José aceptada",
+            "accountType": "CASH",
+            "bankName": null,
+            "accountNumber": null,
+            "clabe": null,
+            "cardLastDigits": null,
+            "shortDescription": null,
+            "longDescription": null,
+            "isActive": true,
+            "createdAt": "2026-10-15T03:46:44.848862Z",
+            "updatedAt": "2026-10-15T03:46:44.848862Z",
+            "company": {
+              "id": "1"
+            }
+          }
+        }
+      },
+      "http": 200,
+      "estado": "passed"
+    },
+    {
+      "caso": "test_configuracion_dinamica_de_cinco_personas",
+      "operacion": "mutation($actor:ID!,$role:ID!,$permission:ID!){removePermissionFromRole(actorCompanyUserId:$actor,roleId:$role,permissionId:$permission)}",
+      "variables": {
+        "actor": "1",
+        "role": "3",
+        "permission": "4"
+      },
+      "esperado": "Sin errores GraphQL",
+      "obtenido": {
+        "data": {
+          "removePermissionFromRole": true
+        }
+      },
+      "http": 200,
+      "estado": "passed"
+    },
+    {
+      "caso": "test_configuracion_dinamica_de_cinco_personas",
+      "operacion": "mutation($actor:ID!,$input:CreateAccountInput!){createAccount(actorCompanyUserId:$actor,input:$input){id companyId name accountType bankName accountNumber clabe cardLastDigits shortDescription longDescription isActive createdAt updatedAt company{id}}}",
+      "variables": {
+        "actor": "3",
+        "input": {
+          "companyId": "1",
+          "name": "Cuenta María revocada",
+          "accountType": "CASH"
+        }
+      },
+      "esperado": "FORBIDDEN",
+      "obtenido": {
+        "data": null,
+        "errors": [
+          {
+            "message": "El rol no tiene el permiso accounts.write.",
+            "locations": [
+              {
+                "line": 1,
+                "column": 49
+              }
+            ],
+            "path": [
+              "createAccount"
+            ],
+            "extensions": {
+              "code": "FORBIDDEN"
+            }
+          }
+        ]
+      },
+      "http": 200,
+      "estado": "passed"
+    },
+    {
+      "caso": "test_configuracion_dinamica_de_cinco_personas",
+      "operacion": "mutation($actor:ID!,$input:CreateAccountInput!){createAccount(actorCompanyUserId:$actor,input:$input){id companyId name accountType bankName accountNumber clabe cardLastDigits shortDescription longDescription isActive createdAt updatedAt company{id}}}",
+      "variables": {
+        "actor": "4",
+        "input": {
+          "companyId": "1",
+          "name": "Cuenta José revocada",
+          "accountType": "CASH"
+        }
+      },
+      "esperado": "FORBIDDEN",
+      "obtenido": {
+        "data": null,
+        "errors": [
+          {
+            "message": "El rol no tiene el permiso accounts.write.",
+            "locations": [
+              {
+                "line": 1,
+                "column": 49
+              }
+            ],
+            "path": [
+              "createAccount"
+            ],
+            "extensions": {
+              "code": "FORBIDDEN"
+            }
+          }
+        ]
+      },
+      "http": 200,
+      "estado": "passed"
+    },
+    {
+      "caso": "test_configuracion_dinamica_de_cinco_personas",
+      "operacion": "mutation($actor:ID!,$input:CreateTransactionInput!){createTransaction(actorCompanyUserId:$actor,input:$input){id amount transactionType transactionDate capturedAt capturedBy isActive account{id} concept{id} capturedByUser{id}}}",
+      "variables": {
+        "actor": "5",
+        "input": {
+          "accountId": "1",
+          "conceptId": "1",
+          "transactionType": "INCOME",
+          "amount": "13.37"
+        }
+      },
+      "esperado": "FORBIDDEN",
+      "obtenido": {
+        "data": null,
+        "errors": [
+          {
+            "message": "El rol no tiene el permiso transactions.write.",
+            "locations": [
+              {
+                "line": 1,
+                "column": 53
+              }
+            ],
+            "path": [
+              "createTransaction"
+            ],
+            "extensions": {
+              "code": "FORBIDDEN"
+            }
+          }
+        ]
+      },
+      "http": 200,
+      "estado": "passed"
+    },
+    {
+      "caso": "test_configuracion_dinamica_de_cinco_personas",
+      "operacion": "query($actor:ID!,$role:ID!){rolePermissions(actorCompanyUserId:$actor,roleId:$role){id isActive role{code} permission{id code isActive}}}",
+      "variables": {
+        "actor": "1",
+        "role": "2"
+      },
+      "esperado": "Sin errores GraphQL",
+      "obtenido": {
+        "data": {
+          "rolePermissions": [
+            {
+              "id": "11",
+              "isActive": true,
+              "role": {
+                "code": "CONTADOR"
+              },
+              "permission": {
+                "id": "1",
+                "code": "company.users.read",
+                "isActive": true
+              }
+            },
+            {
+              "id": "12",
+              "isActive": true,
+              "role": {
+                "code": "CONTADOR"
+              },
+              "permission": {
+                "id": "3",
+                "code": "accounts.read",
+                "isActive": true
+              }
+            },
+            {
+              "id": "13",
+              "isActive": true,
+              "role": {
+                "code": "CONTADOR"
+              },
+              "permission": {
+                "id": "4",
+                "code": "accounts.write",
+                "isActive": true
+              }
+            },
+            {
+              "id": "14",
+              "isActive": true,
+              "role": {
+                "code": "CONTADOR"
+              },
+              "permission": {
+                "id": "5",
+                "code": "concepts.read",
+                "isActive": true
+              }
+            },
+            {
+              "id": "15",
+              "isActive": true,
+              "role": {
+                "code": "CONTADOR"
+              },
+              "permission": {
+                "id": "6",
+                "code": "concepts.write",
+                "isActive": true
+              }
+            },
+            {
+              "id": "16",
+              "isActive": true,
+              "role": {
+                "code": "CONTADOR"
+              },
+              "permission": {
+                "id": "7",
+                "code": "transactions.read",
+                "isActive": true
+              }
+            },
+            {
+              "id": "17",
+              "isActive": true,
+              "role": {
+                "code": "CONTADOR"
+              },
+              "permission": {
+                "id": "8",
+                "code": "transactions.write",
+                "isActive": true
+              }
+            },
+            {
+              "id": "18",
+              "isActive": true,
+              "role": {
+                "code": "CONTADOR"
+              },
+              "permission": {
+                "id": "9",
+                "code": "roles.read",
+                "isActive": true
+              }
+            }
+          ]
+        }
+      },
+      "http": 200,
+      "estado": "passed"
+    },
+    {
+      "caso": "test_configuracion_dinamica_de_cinco_personas",
+      "operacion": "query($actor:ID!,$role:ID!){rolePermissions(actorCompanyUserId:$actor,roleId:$role){id isActive role{code} permission{id code isActive}}}",
+      "variables": {
+        "actor": "1",
+        "role": "4"
+      },
+      "esperado": "Sin errores GraphQL",
+      "obtenido": {
+        "data": {
+          "rolePermissions": [
+            {
+              "id": "23",
+              "isActive": true,
+              "role": {
+                "code": "CONSULTA"
+              },
+              "permission": {
+                "id": "1",
+                "code": "company.users.read",
+                "isActive": true
+              }
+            },
+            {
+              "id": "24",
+              "isActive": true,
+              "role": {
+                "code": "CONSULTA"
+              },
+              "permission": {
+                "id": "3",
+                "code": "accounts.read",
+                "isActive": true
+              }
+            },
+            {
+              "id": "25",
+              "isActive": true,
+              "role": {
+                "code": "CONSULTA"
+              },
+              "permission": {
+                "id": "5",
+                "code": "concepts.read",
+                "isActive": true
+              }
+            },
+            {
+              "id": "26",
+              "isActive": true,
+              "role": {
+                "code": "CONSULTA"
+              },
+              "permission": {
+                "id": "7",
+                "code": "transactions.read",
+                "isActive": true
+              }
+            }
+          ]
+        }
+      },
+      "http": 200,
+      "estado": "passed"
+    },
+    {
+      "caso": "test_configuracion_dinamica_de_cinco_personas",
+      "operacion": "mutation($actor:ID!,$input:AssignRoleInput!){assignRole(actorCompanyUserId:$actor,input:$input){id isActive role{id code} companyUser{id companyId isAdmin}}}",
+      "variables": {
+        "actor": "1",
+        "input": {
+          "companyUserId": "5",
+          "roleId": "3"
+        }
+      },
+      "esperado": "Sin errores GraphQL",
+      "obtenido": {
+        "data": {
+          "assignRole": {
+            "id": "9",
+            "isActive": true,
+            "role": {
+              "id": "3",
+              "code": "CAPTURISTA"
+            },
+            "companyUser": {
+              "id": "5",
+              "companyId": "1",
+              "isAdmin": false
+            }
+          }
+        }
+      },
+      "http": 200,
+      "estado": "passed"
+    },
+    {
+      "caso": "test_configuracion_dinamica_de_cinco_personas",
+      "operacion": "mutation($actor:ID!,$input:CreateTransactionInput!){createTransaction(actorCompanyUserId:$actor,input:$input){id amount transactionType transactionDate capturedAt capturedBy isActive account{id} concept{id} capturedByUser{id}}}",
+      "variables": {
+        "actor": "5",
+        "input": {
+          "accountId": "1",
+          "conceptId": "1",
+          "transactionType": "INCOME",
+          "amount": "13.37"
+        }
+      },
+      "esperado": "Sin errores GraphQL",
+      "obtenido": {
+        "data": {
+          "createTransaction": {
+            "id": "1",
+            "amount": "13.37",
+            "transactionType": "INCOME",
+            "transactionDate": "2026-10-15T03:46:44.963360Z",
+            "capturedAt": "2026-10-15T03:46:44.963360Z",
+            "capturedBy": "5",
+            "isActive": true,
+            "account": {
+              "id": "1"
+            },
+            "concept": {
+              "id": "1"
+            },
+            "capturedByUser": {
+              "id": "5"
+            }
+          }
+        }
+      },
+      "http": 200,
+      "estado": "passed"
+    },
+    {
+      "caso": "test_configuracion_dinamica_de_cinco_personas",
+      "operacion": "query($actor:ID!,$role:ID!){rolePermissions(actorCompanyUserId:$actor,roleId:$role){id isActive role{code} permission{id code isActive}}}",
+      "variables": {
+        "actor": "1",
+        "role": "2"
+      },
+      "esperado": "Sin errores GraphQL",
+      "obtenido": {
+        "data": {
+          "rolePermissions": [
+            {
+              "id": "11",
+              "isActive": true,
+              "role": {
+                "code": "CONTADOR"
+              },
+              "permission": {
+                "id": "1",
+                "code": "company.users.read",
+                "isActive": true
+              }
+            },
+            {
+              "id": "12",
+              "isActive": true,
+              "role": {
+                "code": "CONTADOR"
+              },
+              "permission": {
+                "id": "3",
+                "code": "accounts.read",
+                "isActive": true
+              }
+            },
+            {
+              "id": "13",
+              "isActive": true,
+              "role": {
+                "code": "CONTADOR"
+              },
+              "permission": {
+                "id": "4",
+                "code": "accounts.write",
+                "isActive": true
+              }
+            },
+            {
+              "id": "14",
+              "isActive": true,
+              "role": {
+                "code": "CONTADOR"
+              },
+              "permission": {
+                "id": "5",
+                "code": "concepts.read",
+                "isActive": true
+              }
+            },
+            {
+              "id": "15",
+              "isActive": true,
+              "role": {
+                "code": "CONTADOR"
+              },
+              "permission": {
+                "id": "6",
+                "code": "concepts.write",
+                "isActive": true
+              }
+            },
+            {
+              "id": "16",
+              "isActive": true,
+              "role": {
+                "code": "CONTADOR"
+              },
+              "permission": {
+                "id": "7",
+                "code": "transactions.read",
+                "isActive": true
+              }
+            },
+            {
+              "id": "17",
+              "isActive": true,
+              "role": {
+                "code": "CONTADOR"
+              },
+              "permission": {
+                "id": "8",
+                "code": "transactions.write",
+                "isActive": true
+              }
+            },
+            {
+              "id": "18",
+              "isActive": true,
+              "role": {
+                "code": "CONTADOR"
+              },
+              "permission": {
+                "id": "9",
+                "code": "roles.read",
+                "isActive": true
+              }
+            }
+          ]
+        }
+      },
+      "http": 200,
+      "estado": "passed"
+    },
+    {
+      "caso": "test_configuracion_dinamica_de_cinco_personas",
+      "operacion": "query($actor:ID!,$role:ID!){rolePermissions(actorCompanyUserId:$actor,roleId:$role){id isActive role{code} permission{id code isActive}}}",
+      "variables": {
+        "actor": "1",
+        "role": "4"
+      },
+      "esperado": "Sin errores GraphQL",
+      "obtenido": {
+        "data": {
+          "rolePermissions": [
+            {
+              "id": "23",
+              "isActive": true,
+              "role": {
+                "code": "CONSULTA"
+              },
+              "permission": {
+                "id": "1",
+                "code": "company.users.read",
+                "isActive": true
+              }
+            },
+            {
+              "id": "24",
+              "isActive": true,
+              "role": {
+                "code": "CONSULTA"
+              },
+              "permission": {
+                "id": "3",
+                "code": "accounts.read",
+                "isActive": true
+              }
+            },
+            {
+              "id": "25",
+              "isActive": true,
+              "role": {
+                "code": "CONSULTA"
+              },
+              "permission": {
+                "id": "5",
+                "code": "concepts.read",
+                "isActive": true
+              }
+            },
+            {
+              "id": "26",
+              "isActive": true,
+              "role": {
+                "code": "CONSULTA"
+              },
+              "permission": {
+                "id": "7",
+                "code": "transactions.read",
+                "isActive": true
+              }
+            }
+          ]
+        }
+      },
+      "http": 200,
+      "estado": "passed"
+    },
+    {
+      "caso": "test_configuracion_dinamica_de_cinco_personas",
+      "operacion": "mutation($actor:ID!,$input:CreateAccountInput!){createAccount(actorCompanyUserId:$actor,input:$input){id companyId name accountType bankName accountNumber clabe cardLastDigits shortDescription longDescription isActive createdAt updatedAt company{id}}}",
+      "variables": {
+        "actor": "2",
+        "input": {
+          "companyId": "1",
+          "name": "Cuenta Luis después del cambio",
+          "accountType": "CASH"
+        }
+      },
+      "esperado": "Sin errores GraphQL",
+      "obtenido": {
+        "data": {
+          "createAccount": {
+            "id": "4",
+            "companyId": "1",
+            "name": "Cuenta Luis después del cambio",
+            "accountType": "CASH",
+            "bankName": null,
+            "accountNumber": null,
+            "clabe": null,
+            "cardLastDigits": null,
+            "shortDescription": null,
+            "longDescription": null,
+            "isActive": true,
+            "createdAt": "2026-10-15T03:46:45.011916Z",
+            "updatedAt": "2026-10-15T03:46:45.011916Z",
+            "company": {
+              "id": "1"
+            }
+          }
+        }
+      },
+      "http": 200,
+      "estado": "passed"
+    },
+    {
+      "caso": "test_configuracion_dinamica_de_cinco_personas",
+      "operacion": "mutation($actor:ID!,$input:AssignPermissionToRoleInput!){assignPermissionToRole(actorCompanyUserId:$actor,input:$input){id isActive role{code} permission{code}}}",
+      "variables": {
+        "actor": "4",
+        "input": {
+          "roleId": "4",
+          "permissionId": "6"
+        }
+      },
+      "esperado": "FORBIDDEN",
+      "obtenido": {
+        "data": null,
+        "errors": [
+          {
+            "message": "El rol no tiene el permiso roles.write.",
+            "locations": [
+              {
+                "line": 1,
+                "column": 58
+              }
+            ],
+            "path": [
+              "assignPermissionToRole"
+            ],
+            "extensions": {
+              "code": "FORBIDDEN"
+            }
+          }
+        ]
+      },
+      "http": 200,
+      "estado": "passed"
+    },
+    {
+      "caso": "test_configuracion_dinamica_de_cinco_personas",
+      "operacion": "query($actor:ID!,$role:ID!){rolePermissions(actorCompanyUserId:$actor,roleId:$role){id isActive role{code} permission{id code isActive}}}",
+      "variables": {
+        "actor": "1",
+        "role": "4"
+      },
+      "esperado": "Sin errores GraphQL",
+      "obtenido": {
+        "data": {
+          "rolePermissions": [
+            {
+              "id": "23",
+              "isActive": true,
+              "role": {
+                "code": "CONSULTA"
+              },
+              "permission": {
+                "id": "1",
+                "code": "company.users.read",
+                "isActive": true
+              }
+            },
+            {
+              "id": "24",
+              "isActive": true,
+              "role": {
+                "code": "CONSULTA"
+              },
+              "permission": {
+                "id": "3",
+                "code": "accounts.read",
+                "isActive": true
+              }
+            },
+            {
+              "id": "25",
+              "isActive": true,
+              "role": {
+                "code": "CONSULTA"
+              },
+              "permission": {
+                "id": "5",
+                "code": "concepts.read",
+                "isActive": true
+              }
+            },
+            {
+              "id": "26",
+              "isActive": true,
+              "role": {
+                "code": "CONSULTA"
+              },
+              "permission": {
+                "id": "7",
+                "code": "transactions.read",
+                "isActive": true
+              }
+            }
+          ]
+        }
+      },
+      "http": 200,
+      "estado": "passed"
+    },
+    {
+      "caso": "test_configuracion_dinamica_de_cinco_personas",
+      "operacion": "mutation($actor:ID!,$input:AssignPermissionToRoleInput!){assignPermissionToRole(actorCompanyUserId:$actor,input:$input){id isActive role{code} permission{code}}}",
+      "variables": {
+        "actor": "1",
+        "input": {
+          "roleId": "4",
+          "permissionId": "6"
+        }
+      },
+      "esperado": "Sin errores GraphQL",
+      "obtenido": {
+        "data": {
+          "assignPermissionToRole": {
+            "id": "28",
+            "isActive": true,
+            "role": {
+              "code": "CONSULTA"
+            },
+            "permission": {
+              "code": "concepts.write"
+            }
+          }
+        }
+      },
+      "http": 200,
+      "estado": "passed"
+    },
+    {
+      "caso": "test_configuracion_dinamica_de_cinco_personas",
+      "operacion": "query($actor:ID!,$role:ID!){rolePermissions(actorCompanyUserId:$actor,roleId:$role){id isActive role{code} permission{id code isActive}}}",
+      "variables": {
+        "actor": "1",
+        "role": "4"
+      },
+      "esperado": "Sin errores GraphQL",
+      "obtenido": {
+        "data": {
+          "rolePermissions": [
+            {
+              "id": "23",
+              "isActive": true,
+              "role": {
+                "code": "CONSULTA"
+              },
+              "permission": {
+                "id": "1",
+                "code": "company.users.read",
+                "isActive": true
+              }
+            },
+            {
+              "id": "24",
+              "isActive": true,
+              "role": {
+                "code": "CONSULTA"
+              },
+              "permission": {
+                "id": "3",
+                "code": "accounts.read",
+                "isActive": true
+              }
+            },
+            {
+              "id": "25",
+              "isActive": true,
+              "role": {
+                "code": "CONSULTA"
+              },
+              "permission": {
+                "id": "5",
+                "code": "concepts.read",
+                "isActive": true
+              }
+            },
+            {
+              "id": "26",
+              "isActive": true,
+              "role": {
+                "code": "CONSULTA"
+              },
+              "permission": {
+                "id": "7",
+                "code": "transactions.read",
+                "isActive": true
+              }
+            },
+            {
+              "id": "28",
+              "isActive": true,
+              "role": {
+                "code": "CONSULTA"
+              },
+              "permission": {
+                "id": "6",
+                "code": "concepts.write",
+                "isActive": true
+              }
+            }
+          ]
+        }
+      },
+      "http": 200,
+      "estado": "passed"
+    },
+    {
+      "caso": "test_configuracion_dinamica_de_cinco_personas",
+      "operacion": "mutation($actor:ID!,$role:ID!,$permission:ID!){removePermissionFromRole(actorCompanyUserId:$actor,roleId:$role,permissionId:$permission)}",
+      "variables": {
+        "actor": "1",
+        "role": "4",
+        "permission": "6"
+      },
+      "esperado": "Sin errores GraphQL",
+      "obtenido": {
+        "data": {
+          "removePermissionFromRole": true
+        }
+      },
+      "http": 200,
+      "estado": "passed"
+    },
+    {
+      "caso": "test_configuracion_dinamica_de_cinco_personas",
+      "operacion": "query($actor:ID!,$role:ID!){rolePermissions(actorCompanyUserId:$actor,roleId:$role){id isActive role{code} permission{id code isActive}}}",
+      "variables": {
+        "actor": "1",
+        "role": "4"
+      },
+      "esperado": "Sin errores GraphQL",
+      "obtenido": {
+        "data": {
+          "rolePermissions": [
+            {
+              "id": "23",
+              "isActive": true,
+              "role": {
+                "code": "CONSULTA"
+              },
+              "permission": {
+                "id": "1",
+                "code": "company.users.read",
+                "isActive": true
+              }
+            },
+            {
+              "id": "24",
+              "isActive": true,
+              "role": {
+                "code": "CONSULTA"
+              },
+              "permission": {
+                "id": "3",
+                "code": "accounts.read",
+                "isActive": true
+              }
+            },
+            {
+              "id": "25",
+              "isActive": true,
+              "role": {
+                "code": "CONSULTA"
+              },
+              "permission": {
+                "id": "5",
+                "code": "concepts.read",
+                "isActive": true
+              }
+            },
+            {
+              "id": "26",
+              "isActive": true,
+              "role": {
+                "code": "CONSULTA"
+              },
+              "permission": {
+                "id": "7",
+                "code": "transactions.read",
+                "isActive": true
+              }
+            }
+          ]
+        }
+      },
+      "http": 200,
+      "estado": "passed"
+    },
+    {
+      "caso": "test_configuracion_dinamica_de_cinco_personas",
+      "operacion": "query($actor:ID!,$role:ID!){rolePermissions(actorCompanyUserId:$actor,roleId:$role){id isActive role{code} permission{id code isActive}}}",
+      "variables": {
+        "actor": "1",
+        "role": "3"
+      },
+      "esperado": "Sin errores GraphQL",
+      "obtenido": {
+        "data": {
+          "rolePermissions": [
+            {
+              "id": "19",
+              "isActive": true,
+              "role": {
+                "code": "CAPTURISTA"
+              },
+              "permission": {
+                "id": "3",
+                "code": "accounts.read",
+                "isActive": true
+              }
+            },
+            {
+              "id": "20",
+              "isActive": true,
+              "role": {
+                "code": "CAPTURISTA"
+              },
+              "permission": {
+                "id": "5",
+                "code": "concepts.read",
+                "isActive": true
+              }
+            },
+            {
+              "id": "21",
+              "isActive": true,
+              "role": {
+                "code": "CAPTURISTA"
+              },
+              "permission": {
+                "id": "7",
+                "code": "transactions.read",
+                "isActive": true
+              }
+            },
+            {
+              "id": "22",
+              "isActive": true,
+              "role": {
+                "code": "CAPTURISTA"
+              },
+              "permission": {
+                "id": "8",
+                "code": "transactions.write",
+                "isActive": true
+              }
+            }
+          ]
+        }
+      },
+      "http": 200,
+      "estado": "passed"
+    },
+    {
+      "caso": "test_configuracion_dinamica_de_cinco_personas",
+      "operacion": "query($actor:ID!,$role:ID!){rolePermissions(actorCompanyUserId:$actor,roleId:$role){id isActive role{code} permission{id code isActive}}}",
+      "variables": {
+        "actor": "1",
+        "role": "4"
+      },
+      "esperado": "Sin errores GraphQL",
+      "obtenido": {
+        "data": {
+          "rolePermissions": [
+            {
+              "id": "23",
+              "isActive": true,
+              "role": {
+                "code": "CONSULTA"
+              },
+              "permission": {
+                "id": "1",
+                "code": "company.users.read",
+                "isActive": true
+              }
+            },
+            {
+              "id": "24",
+              "isActive": true,
+              "role": {
+                "code": "CONSULTA"
+              },
+              "permission": {
+                "id": "3",
+                "code": "accounts.read",
+                "isActive": true
+              }
+            },
+            {
+              "id": "25",
+              "isActive": true,
+              "role": {
+                "code": "CONSULTA"
+              },
+              "permission": {
+                "id": "5",
+                "code": "concepts.read",
+                "isActive": true
+              }
+            },
+            {
+              "id": "26",
+              "isActive": true,
+              "role": {
+                "code": "CONSULTA"
+              },
+              "permission": {
+                "id": "7",
+                "code": "transactions.read",
+                "isActive": true
+              }
+            }
+          ]
+        }
+      },
+      "http": 200,
+      "estado": "passed"
+    }
+  ]
+}

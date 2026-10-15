@@ -1,0 +1,6 @@
+mutation {
+  createAccount(actorCompanyUserId: "3", input: {
+    companyId: "2", accountType: DEBIT,
+    name: "Cuenta creada por contador"
+  }) { id name }
+}

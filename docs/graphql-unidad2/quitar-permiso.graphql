@@ -1,0 +1,7 @@
+mutation ($actor: ID!, $role: ID!, $permission: ID!) {
+  removePermissionFromRole(
+    actorCompanyUserId: $actor
+    roleId: $role
+    permissionId: $permission
+  )
+}

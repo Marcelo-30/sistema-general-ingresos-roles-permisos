@@ -1,0 +1,295 @@
+{
+  "version": {
+    "sql": "SELECT VERSION() AS version",
+    "rows": [
+      {
+        "version": "8.4.11"
+      }
+    ]
+  },
+  "roles": {
+    "sql": "SELECT id,code,is_active FROM roles ORDER BY id",
+    "rows": [
+      {
+        "id": 1,
+        "code": "ADMINISTRADOR",
+        "is_active": 1
+      },
+      {
+        "id": 2,
+        "code": "CONTADOR",
+        "is_active": 1
+      },
+      {
+        "id": 3,
+        "code": "CAPTURISTA",
+        "is_active": 1
+      },
+      {
+        "id": 4,
+        "code": "CONSULTA",
+        "is_active": 1
+      }
+    ]
+  },
+  "permissions": {
+    "sql": "SELECT id,code,is_active FROM permissions ORDER BY id",
+    "rows": [
+      {
+        "id": 1,
+        "code": "company.users.read",
+        "is_active": 1
+      },
+      {
+        "id": 2,
+        "code": "company.users.write",
+        "is_active": 1
+      },
+      {
+        "id": 3,
+        "code": "accounts.read",
+        "is_active": 1
+      },
+      {
+        "id": 4,
+        "code": "accounts.write",
+        "is_active": 1
+      },
+      {
+        "id": 5,
+        "code": "concepts.read",
+        "is_active": 1
+      },
+      {
+        "id": 6,
+        "code": "concepts.write",
+        "is_active": 1
+      },
+      {
+        "id": 7,
+        "code": "transactions.read",
+        "is_active": 1
+      },
+      {
+        "id": 8,
+        "code": "transactions.write",
+        "is_active": 1
+      },
+      {
+        "id": 9,
+        "code": "roles.read",
+        "is_active": 1
+      },
+      {
+        "id": 10,
+        "code": "roles.write",
+        "is_active": 1
+      }
+    ]
+  },
+  "matrix": {
+    "sql": "SELECT r.code AS role_code,p.code AS permission_code,rp.is_active FROM role_permissions rp JOIN roles r ON r.id=rp.role_id JOIN permissions p ON p.id=rp.permission_id ORDER BY r.id,p.id",
+    "rows": [
+      {
+        "role_code": "ADMINISTRADOR",
+        "permission_code": "company.users.read",
+        "is_active": 1
+      },
+      {
+        "role_code": "ADMINISTRADOR",
+        "permission_code": "company.users.write",
+        "is_active": 1
+      },
+      {
+        "role_code": "ADMINISTRADOR",
+        "permission_code": "accounts.read",
+        "is_active": 1
+      },
+      {
+        "role_code": "ADMINISTRADOR",
+        "permission_code": "accounts.write",
+        "is_active": 1
+      },
+      {
+        "role_code": "ADMINISTRADOR",
+        "permission_code": "concepts.read",
+        "is_active": 1
+      },
+      {
+        "role_code": "ADMINISTRADOR",
+        "permission_code": "concepts.write",
+        "is_active": 1
+      },
+      {
+        "role_code": "ADMINISTRADOR",
+        "permission_code": "transactions.read",
+        "is_active": 1
+      },
+      {
+        "role_code": "ADMINISTRADOR",
+        "permission_code": "transactions.write",
+        "is_active": 1
+      },
+      {
+        "role_code": "ADMINISTRADOR",
+        "permission_code": "roles.read",
+        "is_active": 1
+      },
+      {
+        "role_code": "ADMINISTRADOR",
+        "permission_code": "roles.write",
+        "is_active": 1
+      },
+      {
+        "role_code": "CONTADOR",
+        "permission_code": "company.users.read",
+        "is_active": 1
+      },
+      {
+        "role_code": "CONTADOR",
+        "permission_code": "accounts.read",
+        "is_active": 1
+      },
+      {
+        "role_code": "CONTADOR",
+        "permission_code": "accounts.write",
+        "is_active": 1
+      },
+      {
+        "role_code": "CONTADOR",
+        "permission_code": "concepts.read",
+        "is_active": 1
+      },
+      {
+        "role_code": "CONTADOR",
+        "permission_code": "concepts.write",
+        "is_active": 1
+      },
+      {
+        "role_code": "CONTADOR",
+        "permission_code": "transactions.read",
+        "is_active": 1
+      },
+      {
+        "role_code": "CONTADOR",
+        "permission_code": "transactions.write",
+        "is_active": 1
+      },
+      {
+        "role_code": "CONTADOR",
+        "permission_code": "roles.read",
+        "is_active": 1
+      },
+      {
+        "role_code": "CAPTURISTA",
+        "permission_code": "accounts.read",
+        "is_active": 1
+      },
+      {
+        "role_code": "CAPTURISTA",
+        "permission_code": "concepts.read",
+        "is_active": 1
+      },
+      {
+        "role_code": "CAPTURISTA",
+        "permission_code": "transactions.read",
+        "is_active": 1
+      },
+      {
+        "role_code": "CAPTURISTA",
+        "permission_code": "transactions.write",
+        "is_active": 1
+      },
+      {
+        "role_code": "CONSULTA",
+        "permission_code": "company.users.read",
+        "is_active": 1
+      },
+      {
+        "role_code": "CONSULTA",
+        "permission_code": "accounts.read",
+        "is_active": 1
+      },
+      {
+        "role_code": "CONSULTA",
+        "permission_code": "concepts.read",
+        "is_active": 1
+      },
+      {
+        "role_code": "CONSULTA",
+        "permission_code": "transactions.read",
+        "is_active": 1
+      }
+    ]
+  },
+  "memberships": {
+    "sql": "SELECT cu.id AS company_user_id,cu.company_id,cu.is_admin,r.code AS role_code,cur.is_active FROM company_users cu JOIN company_user_roles cur ON cur.company_user_id=cu.id JOIN roles r ON r.id=cur.role_id ORDER BY cu.id,cur.id",
+    "rows": [
+      {
+        "company_user_id": 1,
+        "company_id": 1,
+        "is_admin": 1,
+        "role_code": "CONSULTA",
+        "is_active": 1
+      },
+      {
+        "company_user_id": 2,
+        "company_id": 2,
+        "is_admin": 1,
+        "role_code": "ADMINISTRADOR",
+        "is_active": 1
+      },
+      {
+        "company_user_id": 3,
+        "company_id": 2,
+        "is_admin": 0,
+        "role_code": "CONSULTA",
+        "is_active": 0
+      },
+      {
+        "company_user_id": 3,
+        "company_id": 2,
+        "is_admin": 0,
+        "role_code": "CONTADOR",
+        "is_active": 1
+      },
+      {
+        "company_user_id": 4,
+        "company_id": 2,
+        "is_admin": 0,
+        "role_code": "CONSULTA",
+        "is_active": 0
+      },
+      {
+        "company_user_id": 4,
+        "company_id": 2,
+        "is_admin": 0,
+        "role_code": "CAPTURISTA",
+        "is_active": 1
+      },
+      {
+        "company_user_id": 5,
+        "company_id": 2,
+        "is_admin": 0,
+        "role_code": "CONSULTA",
+        "is_active": 1
+      }
+    ]
+  },
+  "transaction_count": {
+    "sql": "SELECT COUNT(*) AS total FROM transactions",
+    "rows": [
+      {
+        "total": 21
+      }
+    ]
+  },
+  "role_permission_count": {
+    "sql": "SELECT COUNT(*) AS total FROM role_permissions",
+    "rows": [
+      {
+        "total": 26
+      }
+    ]
+  }
+}

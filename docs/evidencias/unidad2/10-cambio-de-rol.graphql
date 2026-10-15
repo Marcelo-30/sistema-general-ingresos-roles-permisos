@@ -1,0 +1,5 @@
+mutation {
+  assignRole(actorCompanyUserId: "2", input: {
+    companyUserId: "4", roleId: "2"
+  }) { isActive role { code } }
+}

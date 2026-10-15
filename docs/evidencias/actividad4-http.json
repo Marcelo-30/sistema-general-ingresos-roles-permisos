@@ -1,0 +1,444 @@
+{
+  "fechaUTC": "2026-09-26T02:44:18.879373+00:00",
+  "url": "http://127.0.0.1:8004/graphql",
+  "casos": [
+    {
+      "operacion": "login",
+      "esperado": "Token válido y usuario autenticado",
+      "obtenido": "Autenticado; credenciales y token omitidos",
+      "estado": "PASS"
+    },
+    {
+      "operacion": "{transactions(limit:100){id amount transactionType capturedBy account{id companyId} concept{id}}}",
+      "esperado": "Al menos 20 movimientos; captura del usuario demo",
+      "obtenido": {
+        "transactions": [
+          {
+            "id": "1",
+            "amount": "100.25",
+            "transactionType": "INCOME",
+            "capturedBy": "1",
+            "account": {
+              "id": "1",
+              "companyId": "1"
+            },
+            "concept": {
+              "id": "1"
+            }
+          },
+          {
+            "id": "2",
+            "amount": "101.25",
+            "transactionType": "INCOME",
+            "capturedBy": "1",
+            "account": {
+              "id": "1",
+              "companyId": "1"
+            },
+            "concept": {
+              "id": "1"
+            }
+          },
+          {
+            "id": "3",
+            "amount": "110.25",
+            "transactionType": "INCOME",
+            "capturedBy": "1",
+            "account": {
+              "id": "2",
+              "companyId": "1"
+            },
+            "concept": {
+              "id": "2"
+            }
+          },
+          {
+            "id": "4",
+            "amount": "111.25",
+            "transactionType": "INCOME",
+            "capturedBy": "1",
+            "account": {
+              "id": "2",
+              "companyId": "1"
+            },
+            "concept": {
+              "id": "2"
+            }
+          },
+          {
+            "id": "5",
+            "amount": "120.25",
+            "transactionType": "INCOME",
+            "capturedBy": "1",
+            "account": {
+              "id": "3",
+              "companyId": "1"
+            },
+            "concept": {
+              "id": "3"
+            }
+          },
+          {
+            "id": "6",
+            "amount": "121.25",
+            "transactionType": "INCOME",
+            "capturedBy": "1",
+            "account": {
+              "id": "3",
+              "companyId": "1"
+            },
+            "concept": {
+              "id": "3"
+            }
+          },
+          {
+            "id": "7",
+            "amount": "130.25",
+            "transactionType": "INCOME",
+            "capturedBy": "1",
+            "account": {
+              "id": "1",
+              "companyId": "1"
+            },
+            "concept": {
+              "id": "4"
+            }
+          },
+          {
+            "id": "8",
+            "amount": "131.25",
+            "transactionType": "INCOME",
+            "capturedBy": "1",
+            "account": {
+              "id": "1",
+              "companyId": "1"
+            },
+            "concept": {
+              "id": "4"
+            }
+          },
+          {
+            "id": "9",
+            "amount": "140.25",
+            "transactionType": "INCOME",
+            "capturedBy": "1",
+            "account": {
+              "id": "2",
+              "companyId": "1"
+            },
+            "concept": {
+              "id": "5"
+            }
+          },
+          {
+            "id": "10",
+            "amount": "141.25",
+            "transactionType": "INCOME",
+            "capturedBy": "1",
+            "account": {
+              "id": "2",
+              "companyId": "1"
+            },
+            "concept": {
+              "id": "5"
+            }
+          },
+          {
+            "id": "11",
+            "amount": "150.25",
+            "transactionType": "EXPENSE",
+            "capturedBy": "1",
+            "account": {
+              "id": "3",
+              "companyId": "1"
+            },
+            "concept": {
+              "id": "6"
+            }
+          },
+          {
+            "id": "12",
+            "amount": "151.25",
+            "transactionType": "EXPENSE",
+            "capturedBy": "1",
+            "account": {
+              "id": "3",
+              "companyId": "1"
+            },
+            "concept": {
+              "id": "6"
+            }
+          },
+          {
+            "id": "13",
+            "amount": "160.25",
+            "transactionType": "EXPENSE",
+            "capturedBy": "1",
+            "account": {
+              "id": "1",
+              "companyId": "1"
+            },
+            "concept": {
+              "id": "7"
+            }
+          },
+          {
+            "id": "14",
+            "amount": "161.25",
+            "transactionType": "EXPENSE",
+            "capturedBy": "1",
+            "account": {
+              "id": "1",
+              "companyId": "1"
+            },
+            "concept": {
+              "id": "7"
+            }
+          },
+          {
+            "id": "15",
+            "amount": "170.25",
+            "transactionType": "EXPENSE",
+            "capturedBy": "1",
+            "account": {
+              "id": "2",
+              "companyId": "1"
+            },
+            "concept": {
+              "id": "8"
+            }
+          },
+          {
+            "id": "16",
+            "amount": "171.25",
+            "transactionType": "EXPENSE",
+            "capturedBy": "1",
+            "account": {
+              "id": "2",
+              "companyId": "1"
+            },
+            "concept": {
+              "id": "8"
+            }
+          },
+          {
+            "id": "17",
+            "amount": "180.25",
+            "transactionType": "EXPENSE",
+            "capturedBy": "1",
+            "account": {
+              "id": "3",
+              "companyId": "1"
+            },
+            "concept": {
+              "id": "9"
+            }
+          },
+          {
+            "id": "18",
+            "amount": "181.25",
+            "transactionType": "EXPENSE",
+            "capturedBy": "1",
+            "account": {
+              "id": "3",
+              "companyId": "1"
+            },
+            "concept": {
+              "id": "9"
+            }
+          },
+          {
+            "id": "19",
+            "amount": "190.25",
+            "transactionType": "EXPENSE",
+            "capturedBy": "1",
+            "account": {
+              "id": "1",
+              "companyId": "1"
+            },
+            "concept": {
+              "id": "10"
+            }
+          },
+          {
+            "id": "20",
+            "amount": "191.25",
+            "transactionType": "EXPENSE",
+            "capturedBy": "1",
+            "account": {
+              "id": "1",
+              "companyId": "1"
+            },
+            "concept": {
+              "id": "10"
+            }
+          }
+        ]
+      },
+      "estado": "PASS"
+    },
+    {
+      "operacion": "query($id:ID!){accounts(companyId:$id){id} concepts(companyId:$id){id conceptType}}",
+      "variables": {
+        "id": "1"
+      },
+      "esperado": "Mínimos: 3 cuentas, 5 INCOME y 5 EXPENSE",
+      "obtenido": {
+        "accounts": [
+          {
+            "id": "1"
+          },
+          {
+            "id": "2"
+          },
+          {
+            "id": "3"
+          }
+        ],
+        "concepts": [
+          {
+            "id": "1",
+            "conceptType": "INCOME"
+          },
+          {
+            "id": "2",
+            "conceptType": "INCOME"
+          },
+          {
+            "id": "3",
+            "conceptType": "INCOME"
+          },
+          {
+            "id": "4",
+            "conceptType": "INCOME"
+          },
+          {
+            "id": "5",
+            "conceptType": "INCOME"
+          },
+          {
+            "id": "6",
+            "conceptType": "EXPENSE"
+          },
+          {
+            "id": "7",
+            "conceptType": "EXPENSE"
+          },
+          {
+            "id": "8",
+            "conceptType": "EXPENSE"
+          },
+          {
+            "id": "9",
+            "conceptType": "EXPENSE"
+          },
+          {
+            "id": "10",
+            "conceptType": "EXPENSE"
+          }
+        ]
+      },
+      "estado": "PASS"
+    },
+    {
+      "operacion": "query($a:ID!){accountConcepts(accountId:$a){id} accountBalance(accountId:$a)}",
+      "variables": {
+        "a": "1"
+      },
+      "esperado": {
+        "balance": "-240.00"
+      },
+      "obtenido": {
+        "accountConcepts": [
+          {
+            "id": "1"
+          },
+          {
+            "id": "4"
+          },
+          {
+            "id": "7"
+          },
+          {
+            "id": "10"
+          }
+        ],
+        "accountBalance": "-240.00"
+      },
+      "estado": "PASS"
+    },
+    {
+      "operacion": "query($a:ID!){accountConcepts(accountId:$a){id} accountBalance(accountId:$a)}",
+      "variables": {
+        "a": "2"
+      },
+      "esperado": {
+        "balance": "161.50"
+      },
+      "obtenido": {
+        "accountConcepts": [
+          {
+            "id": "2"
+          },
+          {
+            "id": "5"
+          },
+          {
+            "id": "8"
+          }
+        ],
+        "accountBalance": "161.50"
+      },
+      "estado": "PASS"
+    },
+    {
+      "operacion": "query($a:ID!){accountConcepts(accountId:$a){id} accountBalance(accountId:$a)}",
+      "variables": {
+        "a": "3"
+      },
+      "esperado": {
+        "balance": "-421.50"
+      },
+      "obtenido": {
+        "accountConcepts": [
+          {
+            "id": "3"
+          },
+          {
+            "id": "6"
+          },
+          {
+            "id": "9"
+          }
+        ],
+        "accountBalance": "-421.50"
+      },
+      "estado": "PASS"
+    },
+    {
+      "operacion": "{transactions{id}} sin token",
+      "esperado": "UNAUTHENTICATED",
+      "obtenido": {
+        "data": null,
+        "errors": [
+          {
+            "message": "Token ausente, inválido o expirado.",
+            "locations": [
+              {
+                "line": 1,
+                "column": 2
+              }
+            ],
+            "path": [
+              "transactions"
+            ],
+            "extensions": {
+              "code": "UNAUTHENTICATED"
+            }
+          }
+        ]
+      },
+      "estado": "PASS"
+    }
+  ]
+}

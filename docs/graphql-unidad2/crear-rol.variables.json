@@ -1,0 +1,8 @@
+{
+  "actor": "2",
+  "input": {
+    "code": "AUDITOR",
+    "name": "Auditor",
+    "description": "Rol personalizado de ejemplo"
+  }
+}

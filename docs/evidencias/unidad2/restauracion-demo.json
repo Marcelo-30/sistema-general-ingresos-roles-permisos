@@ -1,0 +1,13 @@
+{
+  "operacion": "mutation { assignRole(actorCompanyUserId:\"2\",input:{companyUserId:\"4\",roleId:\"3\"}) { role { code } } }",
+  "explicacion": "Después de evidenciar el ascenso, se restaura explícitamente CAPTURISTA para facilitar la repetición de la demostración. No es una acción del arranque.",
+  "respuesta": {
+    "data": {
+      "assignRole": {
+        "role": {
+          "code": "CAPTURISTA"
+        }
+      }
+    }
+  }
+}

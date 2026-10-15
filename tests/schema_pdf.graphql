@@ -1,0 +1,97 @@
+scalar Time
+scalar Decimal
+type Company {
+  id: ID!
+  name: String!
+  legalName: String
+  taxId: String
+  email: String
+  phone: String
+  isActive: Boolean!
+  createdAt: Time!
+  updatedAt: Time!
+}
+input CreateCompanyInput {
+  name: String!
+  legalName: String
+  taxId: String
+  email: String
+  phone: String
+}
+input UpdateCompanyInput {
+  id: ID!
+  name: String
+  legalName: String
+  taxId: String
+  email: String
+  phone: String
+  isActive: Boolean
+}
+type Query {
+  companies(activeOnly: Boolean): [Company!]!
+  company(id: ID!): Company
+}
+type Mutation {
+  createCompany(input: CreateCompanyInput!): Company!
+  updateCompany(input: UpdateCompanyInput!): Company!
+  deactivateCompany(id: ID!): Company!
+}
+
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  emailVerified: Boolean!
+  isActive: Boolean!
+  createdAt: Time!
+  updatedAt: Time!
+}
+type CompanyUser {
+  id: ID!
+  companyId: ID!
+  userId: ID!
+  isAdmin: Boolean!
+  isActive: Boolean!
+  joinedAt: Time!
+  company: Company!
+  user: User!
+}
+input LoginInput {
+  email: String!
+  password: String!
+}
+type AuthUser {
+  id: ID!
+  name: String!
+  email: String!
+}
+type AuthPayload {
+  token: String!
+  tokenType: String!
+  user: AuthUser!
+}
+input CreateCompanyAdminInput {
+  companyId: ID!
+  name: String!
+  email: String!
+  password: String!
+}
+input CreateCompanyUserInput {
+  companyId: ID!
+  name: String!
+  email: String!
+  password: String!
+}
+extend type Query {
+  companyUsers(companyId: ID!): [CompanyUser!]!
+}
+extend type Mutation {
+  login(input: LoginInput!): AuthPayload!
+  createCompanyAdmin(
+    input: CreateCompanyAdminInput!
+  ): CompanyUser!
+  createCompanyUser(
+    input: CreateCompanyUserInput!
+  ): CompanyUser!
+  deactivateCompanyUser(id: ID!): CompanyUser!
+}

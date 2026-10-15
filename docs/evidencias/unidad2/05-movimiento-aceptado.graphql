@@ -1,0 +1,7 @@
+mutation {
+  createTransaction(actorCompanyUserId: "4", input: {
+    accountId: "4", conceptId: "11",
+    transactionType: INCOME, amount: "13.37",
+    shortDescription: "Evidencia RBAC capturista"
+  }) { id amount capturedBy }
+}

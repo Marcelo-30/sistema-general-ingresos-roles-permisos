@@ -1,0 +1,20 @@
+mutation ($actor: ID!, $input: CreateAccountInput!) {
+  createAccount(actorCompanyUserId: $actor, input: $input) {
+    id
+    companyId
+    name
+    accountType
+    bankName
+    accountNumber
+    clabe
+    cardLastDigits
+    shortDescription
+    longDescription
+    isActive
+    createdAt
+    updatedAt
+    company {
+      id
+    }
+  }
+}

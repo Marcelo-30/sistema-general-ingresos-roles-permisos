@@ -1,0 +1,12 @@
+mutation ($actor: ID!, $input: AssignPermissionToRoleInput!) {
+  assignPermissionToRole(actorCompanyUserId: $actor, input: $input) {
+    id
+    isActive
+    role {
+      code
+    }
+    permission {
+      code
+    }
+  }
+}

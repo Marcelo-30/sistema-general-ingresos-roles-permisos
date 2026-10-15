@@ -1,0 +1,5 @@
+{
+  rolePermissions(
+    actorCompanyUserId: "2", roleId: "4"
+  ) { permission { code } }
+}

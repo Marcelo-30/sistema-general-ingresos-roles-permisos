@@ -1,0 +1,9 @@
+mutation ($actor: ID!, $input: CreateRoleInput!) {
+  createRole(actorCompanyUserId: $actor, input: $input) {
+    id
+    code
+    name
+    description
+    isActive
+  }
+}

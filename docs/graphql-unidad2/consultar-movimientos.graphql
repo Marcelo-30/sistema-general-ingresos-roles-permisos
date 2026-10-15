@@ -1,0 +1,14 @@
+query ($actor: ID!, $a: ID, $type: TransactionType, $limit: Int, $offset: Int) {
+  transactions(
+    actorCompanyUserId: $actor
+    accountId: $a
+    transactionType: $type
+    limit: $limit
+    offset: $offset
+  ) {
+    id
+    amount
+    isActive
+    capturedBy
+  }
+}

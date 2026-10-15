@@ -1,0 +1,37 @@
+{
+  "companies": {
+    "filas_anteriores": 1,
+    "conservadas_sin_cambios": true,
+    "precision_de_fechas_restituida": 1
+  },
+  "users": {
+    "filas_anteriores": 1,
+    "conservadas_sin_cambios": true,
+    "precision_de_fechas_restituida": 1
+  },
+  "company_users": {
+    "filas_anteriores": 1,
+    "conservadas_sin_cambios": true,
+    "precision_de_fechas_restituida": 1
+  },
+  "accounts": {
+    "filas_anteriores": 3,
+    "conservadas_sin_cambios": true,
+    "precision_de_fechas_restituida": 3
+  },
+  "concepts": {
+    "filas_anteriores": 10,
+    "conservadas_sin_cambios": true,
+    "precision_de_fechas_restituida": 10
+  },
+  "account_concepts": {
+    "filas_anteriores": 10,
+    "conservadas_sin_cambios": true,
+    "precision_de_fechas_restituida": 10
+  },
+  "transactions": {
+    "filas_anteriores": 20,
+    "conservadas_sin_cambios": true,
+    "precision_de_fechas_restituida": 20
+  }
+}

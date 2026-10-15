@@ -1,0 +1,40 @@
+Browser tab: 1, Title: "Strawberry GraphiQL", URL: "http://127.0.0.1:8007/graphql".
+0 AXWebArea Strawberry GraphiQL, URL: 127.0.0.1:8007/graphql
+	1 container graphiql
+		2 button Show Documentation Explorer
+			3 image docs icon
+		4 button Show History
+		5 button Show GraphiQL Explorer
+			6 image
+		7 button Re-fetch GraphQL schema
+		8 button Open short keys dialog
+		9 button Open settings dialog
+		10 tab group Select active operation
+		11 button Add tab
+		12 link Description: GraphiQL, Value: github.com/graphql/graphiql
+		13 container graphiql-session
+			14 container Query Editor
+				15 container
+					16 text entry area (settable)
+					17 container
+						38 text mutation { createTransaction ( actorCompanyUserId : "5" ,  input : { accountId : "4" ,  conceptId : "11" , transactionType : INCOME ,  amount : "13.37" , shortDescription : "Evidencia RBAC consulta rechazada" }) { id amount } }
+				19 toolbar Editor Commands
+					20 button Execute query (Ctrl-Enter)
+						39 image play icon
+					22 button Prettify query (Shift-Ctrl-P)
+					23 button Merge fragments into query (Shift-Ctrl-M)
+					24 button Copy query (Shift-Ctrl-C)
+			25 container
+				26 button Variables
+				27 button Headers
+				28 button Hide editor tools
+			29 container Variables
+				30 container
+					31 text entry area (settable)
+			32 container Result Window
+				33 container
+					34 text entry area
+					37 container
+						40 text { "data" : null , "errors" : [ { "message" : "El rol no tiene el permiso transactions.write." , "locations" : [ { "line" : 2 , "column" : 3 } ], "path" : [ "createTransaction" ], "extensions" : { "code" : "FORBIDDEN" } } ] }
+
+The focused UI element is 20 button Execute query (Ctrl-Enter)

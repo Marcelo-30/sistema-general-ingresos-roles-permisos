@@ -1,0 +1,6 @@
+mutation ($actor: ID!, $id: ID!) {
+  deactivateRole(actorCompanyUserId: $actor, id: $id) {
+    id
+    isActive
+  }
+}

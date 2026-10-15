@@ -1,0 +1,8 @@
+{
+  "actor": "3",
+  "input": {
+    "companyId": "2",
+    "conceptType": "INCOME",
+    "name": "Ingreso nuevo"
+  }
+}

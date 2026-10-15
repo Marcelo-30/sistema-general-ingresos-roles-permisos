@@ -1,0 +1,9 @@
+{
+  "actor": "2",
+  "input": {
+    "companyId": "2",
+    "name": "Usuario de ejemplo",
+    "email": "nuevo@example.com",
+    "password": "<elige-una-contraseña-de-prueba>"
+  }
+}

@@ -1,0 +1,49 @@
+# Transcripción independiente del contrato financiero del PDF, páginas 3–7.
+enum AccountType { DEBIT CREDIT CASH SAVINGS INVESTMENT WALLET OTHER }
+enum ConceptType { INCOME EXPENSE }
+enum TransactionType { INCOME EXPENSE }
+type Account {
+ id: ID! companyId: ID! accountType: AccountType! name: String!
+ bankName: String accountNumber: String clabe: String cardLastDigits: String
+ shortDescription: String longDescription: String isActive: Boolean!
+ createdAt: Time! updatedAt: Time! company: Company!
+}
+input CreateAccountInput {
+ companyId: ID! accountType: AccountType! name: String!
+ bankName: String accountNumber: String clabe: String cardLastDigits: String
+ shortDescription: String longDescription: String
+}
+type Concept {
+ id: ID! companyId: ID! conceptType: ConceptType! name: String!
+ shortDescription: String longDescription: String isActive: Boolean! createdAt: Time! updatedAt: Time!
+}
+input CreateConceptInput {
+ companyId: ID! conceptType: ConceptType! name: String! shortDescription: String longDescription: String
+}
+type AccountConcept {
+ id: ID! accountId: ID! conceptId: ID! isActive: Boolean! createdAt: Time! account: Account! concept: Concept!
+}
+input AssignConceptToAccountInput { accountId: ID! conceptId: ID! }
+type Transaction {
+ id: ID! accountId: ID! conceptId: ID! transactionType: TransactionType! amount: Decimal!
+ transactionDate: Time! capturedAt: Time! capturedBy: ID! shortDescription: String longDescription: String
+ isActive: Boolean! createdAt: Time! updatedAt: Time! account: Account! concept: Concept! capturedByUser: User!
+}
+input CreateTransactionInput {
+ accountId: ID! conceptId: ID! transactionType: TransactionType! amount: Decimal!
+ transactionDate: Time shortDescription: String longDescription: String
+}
+extend type Query {
+ accounts(companyId: ID!, accountType: AccountType, activeOnly: Boolean): [Account!]!
+ concepts(companyId: ID!, conceptType: ConceptType, activeOnly: Boolean): [Concept!]!
+ accountConcepts(accountId: ID!): [AccountConcept!]!
+ transactions(accountId: ID, transactionType: TransactionType, limit: Int, offset: Int): [Transaction!]!
+}
+extend type Mutation {
+ createAccount(input: CreateAccountInput!): Account!
+ createConcept(input: CreateConceptInput!): Concept!
+ assignConceptToAccount(input: AssignConceptToAccountInput!): AccountConcept!
+ removeConceptFromAccount(accountId: ID!, conceptId: ID!): Boolean!
+ createTransaction(input: CreateTransactionInput!): Transaction!
+ deleteTransaction(id: ID!): Transaction!
+}

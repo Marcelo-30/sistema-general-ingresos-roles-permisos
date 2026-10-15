@@ -1,0 +1,35 @@
+SELECT rp.id, r.code AS rol, p.code AS permiso, rp.is_active
+FROM role_permissions rp
+JOIN roles r ON r.id = rp.role_id
+JOIN permissions p ON p.id = rp.permission_id
+ORDER BY r.id, p.id
+
+id	rol	permiso	is_active
+1	ADMINISTRADOR	company.users.read	1
+2	ADMINISTRADOR	company.users.write	1
+3	ADMINISTRADOR	accounts.read	1
+4	ADMINISTRADOR	accounts.write	1
+5	ADMINISTRADOR	concepts.read	1
+6	ADMINISTRADOR	concepts.write	1
+7	ADMINISTRADOR	transactions.read	1
+8	ADMINISTRADOR	transactions.write	1
+9	ADMINISTRADOR	roles.read	1
+10	ADMINISTRADOR	roles.write	1
+11	CONTADOR	company.users.read	1
+12	CONTADOR	accounts.read	1
+13	CONTADOR	accounts.write	1
+14	CONTADOR	concepts.read	1
+15	CONTADOR	concepts.write	1
+16	CONTADOR	transactions.read	1
+17	CONTADOR	transactions.write	1
+18	CONTADOR	roles.read	1
+19	CAPTURISTA	accounts.read	1
+27	CAPTURISTA	accounts.write	0
+20	CAPTURISTA	concepts.read	1
+21	CAPTURISTA	transactions.read	1
+22	CAPTURISTA	transactions.write	1
+23	CONSULTA	company.users.read	1
+24	CONSULTA	accounts.read	1
+25	CONSULTA	concepts.read	1
+28	CONSULTA	concepts.write	0
+26	CONSULTA	transactions.read	1

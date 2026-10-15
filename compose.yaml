@@ -1,0 +1,32 @@
+name: ingresos-roles
+services:
+  mysql:
+    image: mysql:8.4
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?Ejecuta python -m app.init_docker}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-ingresos}
+      MYSQL_USER: ${MYSQL_USER:-ingresos}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:?Ejecuta python -m app.init_docker}
+    ports:
+      - "127.0.0.1:${MYSQL_PORT:-3307}:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 --silent"]
+      interval: 5s
+      timeout: 5s
+      retries: 40
+  api:
+    build: .
+    restart: unless-stopped
+    env_file: .env.docker
+    environment:
+      DATABASE_URL: mysql+pymysql://${MYSQL_USER:-ingresos}:${MYSQL_PASSWORD}@mysql:3306/${MYSQL_DATABASE:-ingresos}?charset=utf8mb4
+    ports:
+      - "127.0.0.1:${API_PORT:-8007}:8000"
+    depends_on:
+      mysql:
+        condition: service_healthy
+volumes:
+  mysql_data:

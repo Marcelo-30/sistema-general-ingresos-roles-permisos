@@ -1,0 +1,22 @@
+Comando: .\.venv\Scripts\python.exe -m pytest -v --basetemp=.pytest_run
+Fecha: 2026-09-25
+Entorno: Windows, Python 3.13.14, pytest 8.3.5.
+Resultado: los 17 casos terminaron aprobados (incluye comparación exacta del esquema del PDF).
+
+Tramo final de la salida real:
+PASSED          [ 94%]
+tests/test_schema_pdf.py::test_contrato_exacto_del_pdf PASSED            [100%]
+
+============================== warnings summary ===============================
+.venv\Lib\site-packages\starlette\testclient.py:37
+  C:\Users\enriq\OneDrive\Escritorio\Fastapi\.venv\Lib\site-packages\starlette\testclient.py:37: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
+    _PortalFactoryType = typing.Callable[[], typing.ContextManager[anyio.abc.BlockingPortal]]
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 17 passed, 1 warning in 7.14s ========================
+
+Código de salida: 0
+
+Comando: .\.venv\Scripts\python.exe -m pip check
+Salida real: No broken requirements found.
+

@@ -1,0 +1,13 @@
+mutation ($actor: ID!, $input: CreateConceptInput!) {
+  createConcept(actorCompanyUserId: $actor, input: $input) {
+    id
+    companyId
+    name
+    conceptType
+    shortDescription
+    longDescription
+    isActive
+    createdAt
+    updatedAt
+  }
+}

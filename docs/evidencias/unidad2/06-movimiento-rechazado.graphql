@@ -1,0 +1,7 @@
+mutation {
+  createTransaction(actorCompanyUserId: "5", input: {
+    accountId: "4", conceptId: "11",
+    transactionType: INCOME, amount: "13.37",
+    shortDescription: "Evidencia RBAC consulta rechazada"
+  }) { id amount }
+}

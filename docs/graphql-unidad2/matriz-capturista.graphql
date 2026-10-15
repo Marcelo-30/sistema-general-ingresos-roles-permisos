@@ -1,0 +1,14 @@
+query ($actor: ID!, $role: ID!) {
+  rolePermissions(actorCompanyUserId: $actor, roleId: $role) {
+    id
+    isActive
+    role {
+      code
+    }
+    permission {
+      id
+      code
+      isActive
+    }
+  }
+}

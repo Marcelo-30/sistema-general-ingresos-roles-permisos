@@ -1,0 +1,10 @@
+query ($actor: ID!, $id: ID!) {
+  companyUsers(actorCompanyUserId: $actor, companyId: $id) {
+    id
+    isAdmin
+    isActive
+    user {
+      id
+    }
+  }
+}

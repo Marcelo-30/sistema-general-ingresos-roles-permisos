@@ -1,0 +1,274 @@
+{
+  "backend": "MySQL",
+  "sql_role_permissions": "SELECT rp.id, r.code AS rol, p.code AS permiso, rp.is_active\nFROM role_permissions rp\nJOIN roles r ON r.id = rp.role_id\nJOIN permissions p ON p.id = rp.permission_id\nORDER BY r.id, p.id",
+  "sql_roles_pedro": "SELECT cur.id, r.code AS rol, cur.is_active\nFROM company_user_roles cur\nJOIN roles r ON r.id = cur.role_id\nJOIN company_users cu ON cu.id = cur.company_user_id\nJOIN users u ON u.id = cu.user_id\nJOIN companies c ON c.id = cu.company_id\nWHERE c.tax_id = 'DEMO-PERMISOS-U2-A4'\nAND u.email = 'pedro.permisos@example.com'\nORDER BY cur.id",
+  "roles": [
+    {
+      "id": 1,
+      "code": "ADMINISTRADOR",
+      "is_active": 1
+    },
+    {
+      "id": 2,
+      "code": "CONTADOR",
+      "is_active": 1
+    },
+    {
+      "id": 3,
+      "code": "CAPTURISTA",
+      "is_active": 1
+    },
+    {
+      "id": 4,
+      "code": "CONSULTA",
+      "is_active": 1
+    }
+  ],
+  "permissions": [
+    {
+      "id": 1,
+      "code": "company.users.read",
+      "is_active": 1
+    },
+    {
+      "id": 2,
+      "code": "company.users.write",
+      "is_active": 1
+    },
+    {
+      "id": 3,
+      "code": "accounts.read",
+      "is_active": 1
+    },
+    {
+      "id": 4,
+      "code": "accounts.write",
+      "is_active": 1
+    },
+    {
+      "id": 5,
+      "code": "concepts.read",
+      "is_active": 1
+    },
+    {
+      "id": 6,
+      "code": "concepts.write",
+      "is_active": 1
+    },
+    {
+      "id": 7,
+      "code": "transactions.read",
+      "is_active": 1
+    },
+    {
+      "id": 8,
+      "code": "transactions.write",
+      "is_active": 1
+    },
+    {
+      "id": 9,
+      "code": "roles.read",
+      "is_active": 1
+    },
+    {
+      "id": 10,
+      "code": "roles.write",
+      "is_active": 1
+    }
+  ],
+  "role_permissions": [
+    {
+      "id": 1,
+      "rol": "ADMINISTRADOR",
+      "permiso": "company.users.read",
+      "is_active": 1
+    },
+    {
+      "id": 2,
+      "rol": "ADMINISTRADOR",
+      "permiso": "company.users.write",
+      "is_active": 1
+    },
+    {
+      "id": 3,
+      "rol": "ADMINISTRADOR",
+      "permiso": "accounts.read",
+      "is_active": 1
+    },
+    {
+      "id": 4,
+      "rol": "ADMINISTRADOR",
+      "permiso": "accounts.write",
+      "is_active": 1
+    },
+    {
+      "id": 5,
+      "rol": "ADMINISTRADOR",
+      "permiso": "concepts.read",
+      "is_active": 1
+    },
+    {
+      "id": 6,
+      "rol": "ADMINISTRADOR",
+      "permiso": "concepts.write",
+      "is_active": 1
+    },
+    {
+      "id": 7,
+      "rol": "ADMINISTRADOR",
+      "permiso": "transactions.read",
+      "is_active": 1
+    },
+    {
+      "id": 8,
+      "rol": "ADMINISTRADOR",
+      "permiso": "transactions.write",
+      "is_active": 1
+    },
+    {
+      "id": 9,
+      "rol": "ADMINISTRADOR",
+      "permiso": "roles.read",
+      "is_active": 1
+    },
+    {
+      "id": 10,
+      "rol": "ADMINISTRADOR",
+      "permiso": "roles.write",
+      "is_active": 1
+    },
+    {
+      "id": 11,
+      "rol": "CONTADOR",
+      "permiso": "company.users.read",
+      "is_active": 1
+    },
+    {
+      "id": 12,
+      "rol": "CONTADOR",
+      "permiso": "accounts.read",
+      "is_active": 1
+    },
+    {
+      "id": 13,
+      "rol": "CONTADOR",
+      "permiso": "accounts.write",
+      "is_active": 1
+    },
+    {
+      "id": 14,
+      "rol": "CONTADOR",
+      "permiso": "concepts.read",
+      "is_active": 1
+    },
+    {
+      "id": 15,
+      "rol": "CONTADOR",
+      "permiso": "concepts.write",
+      "is_active": 1
+    },
+    {
+      "id": 16,
+      "rol": "CONTADOR",
+      "permiso": "transactions.read",
+      "is_active": 1
+    },
+    {
+      "id": 17,
+      "rol": "CONTADOR",
+      "permiso": "transactions.write",
+      "is_active": 1
+    },
+    {
+      "id": 18,
+      "rol": "CONTADOR",
+      "permiso": "roles.read",
+      "is_active": 1
+    },
+    {
+      "id": 19,
+      "rol": "CAPTURISTA",
+      "permiso": "accounts.read",
+      "is_active": 1
+    },
+    {
+      "id": 27,
+      "rol": "CAPTURISTA",
+      "permiso": "accounts.write",
+      "is_active": 0
+    },
+    {
+      "id": 20,
+      "rol": "CAPTURISTA",
+      "permiso": "concepts.read",
+      "is_active": 1
+    },
+    {
+      "id": 21,
+      "rol": "CAPTURISTA",
+      "permiso": "transactions.read",
+      "is_active": 1
+    },
+    {
+      "id": 22,
+      "rol": "CAPTURISTA",
+      "permiso": "transactions.write",
+      "is_active": 1
+    },
+    {
+      "id": 23,
+      "rol": "CONSULTA",
+      "permiso": "company.users.read",
+      "is_active": 1
+    },
+    {
+      "id": 24,
+      "rol": "CONSULTA",
+      "permiso": "accounts.read",
+      "is_active": 1
+    },
+    {
+      "id": 25,
+      "rol": "CONSULTA",
+      "permiso": "concepts.read",
+      "is_active": 1
+    },
+    {
+      "id": 28,
+      "rol": "CONSULTA",
+      "permiso": "concepts.write",
+      "is_active": 0
+    },
+    {
+      "id": 26,
+      "rol": "CONSULTA",
+      "permiso": "transactions.read",
+      "is_active": 1
+    }
+  ],
+  "company_user_roles_pedro": [
+    {
+      "id": 8,
+      "rol": "CONSULTA",
+      "is_active": 0
+    },
+    {
+      "id": 9,
+      "rol": "CAPTURISTA",
+      "is_active": 1
+    }
+  ],
+  "conteos_empresa_demo": {
+    "cuentas": 4,
+    "movimientos": 1
+  },
+  "comprobaciones": {
+    "cuatro_roles": true,
+    "diez_permisos": true,
+    "matriz_activa_inicial_26": true,
+    "dos_parejas_historicas_inactivas": true,
+    "pedro_un_rol_activo_capturista": true,
+    "cuentas_aceptadas": true,
+    "solo_movimiento_aceptado": true
+  }
+}

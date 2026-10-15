@@ -1,0 +1,10 @@
+type Role { id: ID! code: String! name: String! description: String isActive: Boolean! }
+type Permission { id: ID! code: String! name: String! description: String isActive: Boolean! }
+type RolePermission { id: ID! role: Role! permission: Permission! isActive: Boolean! }
+type CompanyUserRole { id: ID! companyUser: CompanyUser! role: Role! isActive: Boolean! }
+input CreateRoleInput { code: String! name: String! description: String }
+input CreatePermissionInput { code: String! name: String! description: String }
+input AssignPermissionToRoleInput { roleId: ID! permissionId: ID! }
+input AssignRoleInput { companyUserId: ID! roleId: ID! }
+extend type Query { roles(activeOnly: Boolean): [Role!]! role(id: ID!): Role permissions(activeOnly: Boolean): [Permission!]! rolePermissions(roleId: ID!): [RolePermission!]! accountBalance(accountId: ID!): Decimal! }
+extend type Mutation { createRole(input: CreateRoleInput!): Role! deactivateRole(id: ID!): Role! createPermission(input: CreatePermissionInput!): Permission! assignPermissionToRole(input: AssignPermissionToRoleInput!): RolePermission! removePermissionFromRole(roleId: ID!, permissionId: ID!): Boolean! assignRole(input: AssignRoleInput!): CompanyUserRole! }

@@ -1,0 +1,18 @@
+{
+  "companyId": "1",
+  "actual": {
+    "accounts": 3,
+    "income_concepts": 5,
+    "expense_concepts": 5,
+    "account_concepts": 10,
+    "transactions": 20
+  },
+  "minimum": {
+    "accounts": 3,
+    "income_concepts": 5,
+    "expense_concepts": 5,
+    "account_concepts": 10,
+    "transactions": 20
+  }
+}
+Mínimos verificados. Los conteos incluyen registros conservados por eliminación lógica.

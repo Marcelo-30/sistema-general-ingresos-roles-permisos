@@ -1,0 +1,15 @@
+mutation ($actor: ID!, $input: AssignRoleInput!) {
+  assignRole(actorCompanyUserId: $actor, input: $input) {
+    id
+    isActive
+    role {
+      id
+      code
+    }
+    companyUser {
+      id
+      companyId
+      isAdmin
+    }
+  }
+}

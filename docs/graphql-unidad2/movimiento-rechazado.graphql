@@ -1,0 +1,20 @@
+mutation ($actor: ID!, $input: CreateTransactionInput!) {
+  createTransaction(actorCompanyUserId: $actor, input: $input) {
+    id
+    amount
+    transactionType
+    transactionDate
+    capturedAt
+    capturedBy
+    isActive
+    account {
+      id
+    }
+    concept {
+      id
+    }
+    capturedByUser {
+      id
+    }
+  }
+}

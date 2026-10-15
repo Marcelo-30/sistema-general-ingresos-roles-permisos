@@ -1,0 +1,8 @@
+{
+  "actor": "3",
+  "input": {
+    "companyId": "2",
+    "accountType": "DEBIT",
+    "name": "Cuenta de ejemplo nueva"
+  }
+}
